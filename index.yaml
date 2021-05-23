@@ -1,0 +1,34 @@
+apiVersion: v1
+entries:
+  backup:
+  - apiVersion: v2
+    created: "2021-05-23T23:45:45.714392591Z"
+    description: Chart to back up PVCs with restic and regularly clean up the snapshots.
+    digest: 10c3e91dc170c7b0073f31cb6314f6c54d76e0363fede90f67fad7b423538aaf
+    name: backup
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/backup-1.0.0/backup-1.0.0.tgz
+    version: 1.0.0
+  generic:
+  - apiVersion: v2
+    created: "2021-05-23T23:45:45.84307048Z"
+    description: A chart for generic applications. Use this if you need to deploy
+      something without wanting to build a fully fledged new helm chart.
+    digest: 0e950847b73f5b166bb83307c3ee86f2b3be671496beab9412b01c9b5bfb3e4f
+    name: generic
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/generic-1.0.0/generic-1.0.0.tgz
+    version: 1.0.0
+  mailtrain:
+  - apiVersion: v2
+    created: "2021-05-23T23:45:45.94090594Z"
+    description: Runs mailtrain in your kubernetes cluster
+    digest: 21d0dd841c38ab5f40399fb8dc5f35745df28e841966fb0c9c20bc1c54eb3931
+    name: mailtrain
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/mailtrain-1.0.0/mailtrain-1.0.0.tgz
+    version: 1.0.0
+generated: "2021-05-23T23:45:45.94091164Z"
