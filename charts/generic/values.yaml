@@ -1,0 +1,108 @@
+# -- Set to true to create a CronJob instead of a Deployment
+isCronjob: false
+
+# -- schedule for the cronjob. Only used if `isCronjob` is `true`.
+schedule: "17 3 * * *"
+
+# -- number of replicas
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "1.20.0"
+
+restartPolicy: Always
+
+initContainers: []
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: true
+
+  # -- Annotations to add to the service account
+  annotations: {}
+
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template.
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+command: ~
+
+args: ~
+
+env: []
+
+additionalVolumeMounts: []
+
+additionalVolumes: []
+
+labels: {}
+
+annotations: {}
+
+persistence:
+  enabled: false
+  storage: 100Mi
+
+ports:
+  - name: http
+    containerPort: 80
+    protocol: TCP
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+service:
+  type: ClusterIP
+  targetPort: http
+  protocol: TCP
+  name: http
+  port: 80
+
+  # Only for type ClusterIP
+  ip: ~
+
+ingress:
+  enabled: false
+  annotations: {}
+
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          backend:
+            serviceName: chart-example.local
+            servicePort: 80
+  tls: []
+
+resources: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

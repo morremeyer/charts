@@ -1,0 +1,5 @@
+apiVersion: v2
+name: mailtrain
+description: Runs mailtrain in your kubernetes cluster
+type: application
+version: 0.1.0

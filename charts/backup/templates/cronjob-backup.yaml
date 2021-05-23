@@ -1,0 +1,91 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "backup.fullname" . }}
+  labels:
+    {{- include "backup.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.backupJob.schedule }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          {{- with .Values.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          securityContext:
+            {{- toYaml .Values.backupJob.securityContext | nindent 12 }}
+          initContainers:
+          - name: init
+            image: "{{ .Values.backupJob.init.image.repository }}:{{ .Values.backupJob.init.image.tag }}"
+            imagePullPolicy: {{ .Values.backupJob.init.image.pullPolicy }}
+            command:
+              - /bin/sh
+            args:
+              - -c
+              - "restic -r {{ .Values.repo }} snapshots || restic -r {{ .Values.repo }} init"
+            envFrom:
+              - secretRef:
+                  name: {{ .Values.secretName }}
+            resources:
+              {{- toYaml .Values.backupJob.init.resources | nindent 14 }}
+          containers:
+          - name: backup
+            image: "{{ .Values.backupJob.backup.image.repository }}:{{ .Values.backupJob.backup.image.tag }}"
+            imagePullPolicy: {{ .Values.backupJob.backup.image.pullPolicy }}
+            {{- if .Values.backupJob.backup.command }}
+            command:
+              {{- toYaml .Values.backupJob.backup.command | nindent 14 }}
+            {{- end }}
+            args:
+            {{- if .Values.backupJob.backup.args }}
+              {{- toYaml .Values.backupJob.backup.args | nindent 14 }}
+            {{- else }}
+              - --no-cache
+              - --verbose
+              - --repo
+              - {{ .Values.repo }}
+              - backup
+              - /data
+            {{- end }}
+            envFrom:
+              - secretRef:
+                  name: {{ .Values.secretName }}
+            resources:
+              {{- toYaml .Values.backupJob.backup.resources | nindent 14 }}
+            {{- if .Values.pvc }}
+            volumeMounts:
+              - mountPath: "/data"
+                name: data
+            {{- end }}
+          restartPolicy: {{ .Values.backupJob.restartPolicy }}
+          {{- with .Values.backupJob.nodeSelector }}
+          nodeSelector:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if .Values.backupJob.affinityLabels }}
+          affinity:
+            podAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchLabels: {{ toYaml .Values.backupJob.affinityLabels | nindent 22 }}
+                  topologyKey: "kubernetes.io/hostname"
+          {{- else }}
+          {{- with .Values.backupJob.affinity }}
+          affinity:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- end }}
+
+          {{- with .Values.backupJob.tolerations }}
+          tolerations:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if .Values.pvc }}
+          volumes:
+            - name: data
+              persistentVolumeClaim:
+                claimName: {{ .Values.pvc }}
+          {{- end }}
+

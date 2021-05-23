@@ -1,0 +1,99 @@
+# -- The repository location
+repo: ~
+pvc: ~
+
+# -- The secret that all containers load their environment from. See https://restic.readthedocs.io/en/latest/040_backup.html#environment-variables for variables.
+secretName: "backup-secret"
+
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+backupJob:
+  # -- when to run backups
+  schedule: "17 3 * * *"
+
+  # -- restartPolicy for the backup Jobs
+  restartPolicy: OnFailure
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  # -- labels of a pod that a strict affinity for scheduling will be set to. Needed for `ReadWriteOnce` PVCs.
+  affinityLabels: {}
+
+  # -- to specify a full `spec.affinity` map for a pod. In most cases, `backupJob.affinityLabels` will be sufficient.
+  affinity: {}
+
+  securityContext: {}
+
+  backup:
+    image:
+      repository: restic/restic
+      pullPolicy: IfNotPresent
+      tag: 0.12.0
+
+    # -- command for the backup. Defaults to '/usr/bin/restic' by the upstream container.
+    command: ~
+
+    # -- arguments for the backup. **Automatically generated, only set when necessary**
+    args: []
+
+    # -- resources for the backup container
+    resources: {}
+
+  # -- Configuration for the repository init container
+  init:
+    image:
+      repository: restic/restic
+      pullPolicy: IfNotPresent
+      tag: 0.12.0
+
+    # -- resources for the init container
+    resources: {}
+
+cleanupJob:
+  # -- If backups shall be cleaned up after some time
+  enabled: true
+
+  # -- when to run the cleanup
+  schedule: "17 15 * * *"
+
+  # -- number of daily snapshots to keep
+  keepDaily: 8
+
+  # -- number of weekly snapshots to keep
+  keepWeekly: 5
+
+  # -- number of monthly snapshots to keep
+  keepMonthly: 13
+
+  # -- number of yearly snapshots to keep
+  keepYearly: 2
+
+  # -- restartPolicy for the cleanup Jobs
+  restartPolicy: OnFailure
+
+  image:
+    repository: restic/restic
+    pullPolicy: IfNotPresent
+    tag: 0.12.0
+
+  # -- command for the cleanup. Defaults to '/usr/bin/restic' by the upstream container.
+  command: ~
+
+  # -- arguments for the cleanup. **Automatically generated, only set when necessary**
+  args: []
+
+  # -- resources for the cleanup container
+  resources: {}
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+  securityContext: {}

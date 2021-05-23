@@ -1,0 +1,36 @@
+{{ template "chart.header" . }}
+{{ template "chart.description" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+## Usage
+
+If you want to regularly back up the contents of a PVC, use this minimal example for your values.yaml
+
+```yaml
+pvc: name-of-pvc
+repo: s3:https://minio.example.com/name-of-pvc
+backupJob:
+  affinityLabels:
+    app.kubernetes.io/instance: morre-paperless
+    app.kubernetes.io/name: paperless
+```
+
+This will back up every day at 03:17. At 15:17, a cleanup will run and keep:
+
+* 8 daily snapshots
+* 5 weekly snapshots
+* 13 monthly snapshots
+* 2 yearly snapshots
+
+For more advanced use cases, check the configuration section below or the values.yaml file.
+
+## Configuration
+
+The following table lists the configurable parameters of the chart and the default values.
+
+{{ template "chart.valuesSection" . }}
+
+{{ template "chart.maintainersSection" . }}

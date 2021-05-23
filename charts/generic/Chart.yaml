@@ -1,0 +1,5 @@
+apiVersion: v2
+name: generic
+description: A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
+type: application
+version: 0.1.0
