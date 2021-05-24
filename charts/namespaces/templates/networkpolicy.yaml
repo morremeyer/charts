@@ -1,0 +1,27 @@
+{{ if not .Values.disableNetworkPolicies }}
+{{- range $.Values.namespaces }}
+{{- $namespaceName := .name -}}
+{{- if not .disableDefaultNetworkPolicies -}}
+{{- range $.Values.defaultNetworkPolicies }}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ .name }}
+  namespace: {{ $namespaceName }}
+spec:
+  {{- toYaml .spec | nindent 2}}
+{{- end }}
+{{- end }}
+{{- range .networkPolicies }}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ .name }}
+  namespace: {{ $namespaceName }}
+spec:
+  {{- toYaml .spec | nindent 2}}
+{{- end -}}
+{{- end -}}
+{{- end -}}

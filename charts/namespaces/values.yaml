@@ -1,0 +1,8 @@
+# -- List of namespaces to deploy
+namespaces: []
+
+# -- NetworkPolicies that will be applied to all namespaces
+defaultNetworkPolicies: []
+
+# -- Switch to disable all NetworkPolicies
+disableNetworkPolicies: false
