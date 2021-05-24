@@ -33,6 +33,15 @@ entries:
     version: 1.0.0
   namespaces:
   - apiVersion: v2
+    created: "2021-05-24T14:04:49.863655158Z"
+    description: Deploy namespaces with (default) networkpolicies
+    digest: 52e05e16bfd0a100ada54914c1c59e65e03b926d3582a906c7b61f9a56f13be5
+    name: namespaces
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/namespaces-1.0.0/namespaces-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
     created: "2021-05-24T14:03:12.409171997Z"
     description: Deploy namespaces with (default) networkpolicies
     digest: 2b82fa3f4b98f86618b308eede8daa33cff538649bdde67afbaa3c7dd6b88f3b
@@ -41,4 +50,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/namespaces-0.1.0/namespaces-0.1.0.tgz
     version: 0.1.0
-generated: "2021-05-24T14:03:12.409176597Z"
+generated: "2021-05-24T14:04:49.863666658Z"
