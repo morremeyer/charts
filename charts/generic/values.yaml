@@ -40,7 +40,11 @@ command: ~
 
 args: ~
 
+# -- Directly set environment variables
 env: []
+
+# -- Set environment variables from configMaps or Secrets
+envValueFrom: {}
 
 additionalVolumeMounts: []
 

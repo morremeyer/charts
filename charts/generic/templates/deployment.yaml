@@ -54,8 +54,17 @@ spec:
           args:
             {{ toYaml . | nindent 12 }}
           {{- end }}
+          {{- if or .Values.env .Values.envValueFrom }}
           env:
+            {{- if .Values.env }}
             {{- toYaml .Values.env | nindent 12 }}
+            {{- end }}
+            {{- range $key, $value := .Values.envValueFrom }}
+            - name: {{ $key }}
+              valueFrom:
+                {{- $value | toYaml | nindent 16 }}
+            {{- end }}
+          {{- end }}
           volumeMounts:
             {{- if .Values.persistence.enabled }}
             - name: data

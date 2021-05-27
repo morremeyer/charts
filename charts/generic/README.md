@@ -20,7 +20,8 @@ The following table lists the configurable parameters of the chart and the defau
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | command | string | `nil` |  |
-| env | list | `[]` |  |
+| env | list | `[]` | Directly set environment variables |
+| envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
