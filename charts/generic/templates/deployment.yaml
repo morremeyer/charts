@@ -56,8 +56,9 @@ spec:
           {{- end }}
           {{- if or .Values.env .Values.envValueFrom }}
           env:
-            {{- if .Values.env }}
-            {{- toYaml .Values.env | nindent 12 }}
+            {{- range $key, $value := .Values.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
             {{- end }}
             {{- range $key, $value := .Values.envValueFrom }}
             - name: {{ $key }}
