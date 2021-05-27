@@ -9,6 +9,29 @@
 
 The following table lists the configurable parameters of the chart and the default values.
 
+## Upgrading
+
+### To 2.0.0
+
+The format for configuration environment variables has changed and is now less verbose.
+
+Old:
+
+```yaml
+env:
+  - name: ENV_NAME
+    value: test
+```
+
+New:
+
+```yaml
+env:
+  ENV_NAME: test
+```
+
+If you have environment variables set from ConfigMaps or Secrets, check out `envValueFrom`, which was [added in 1.1.0](https://github.com/morremeyer/charts/commit/a2b767f91b8f921bbd81abcb37648a6724ebb1db).
+
 {{ template "chart.valuesSection" . }}
 
 {{ template "chart.maintainersSection" . }}
