@@ -45,6 +45,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | command | string | `nil` |  |
 | env | list | `[]` | Directly set environment variables |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
+| failedJobsHistoryLimit | string | `nil` | The number of failed finished jobs to retain. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
@@ -87,5 +88,6 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
+| successfulJobsHistoryLimit | string | `nil` | The number of successful finished jobs to retain. |
 | tolerations | list | `[]` |  |
 
