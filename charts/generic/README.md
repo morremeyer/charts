@@ -52,6 +52,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | image.tag | string | `"1.20.0"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
+| ingress.className | string | `nil` | The ingressClassName for this Ingress resource |
 | ingress.enabled | bool | `false` |  |
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
 | ingress.hosts[0].paths[0].backend.serviceName | string | `"chart-example.local"` |  |

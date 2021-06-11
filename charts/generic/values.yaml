@@ -90,7 +90,11 @@ service:
   ip: ~
 
 ingress:
+  ## -- Enable or disable this Ingress
   enabled: false
+
+  # -- The ingressClassName for this Ingress resource
+  className: ~
   annotations: {}
 
   hosts:
