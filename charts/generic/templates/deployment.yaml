@@ -51,13 +51,13 @@ spec:
           {{- end }}
           {{- if or .Values.env .Values.envValueFrom }}
           env:
-            {{- range $key, $value := .Values.env }}
-            - name: {{ $key }}
-              value: {{ $value | quote }}
-            {{- end }}
             {{- range $key, $value := .Values.envValueFrom }}
             - name: {{ $key }}
               valueFrom: {{- $value | toYaml | nindent 16 }}
+            {{- end }}
+            {{- range $key, $value := .Values.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
             {{- end }}
           {{- end }}
           {{- if or .Values.persistence.enabled .Values.additionalVolumeMounts }}
