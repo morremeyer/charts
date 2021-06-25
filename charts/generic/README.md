@@ -68,6 +68,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | nodeSelector | object | `{}` |  |
 | persistence.enabled | bool | `false` |  |
 | persistence.storage | string | `"100Mi"` |  |
+| persistence.storageClassName | string | `nil` | Set a storageClassName, otherwise the default class is used. |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | ports[0].containerPort | int | `80` |  |

@@ -63,6 +63,8 @@ annotations: {}
 persistence:
   enabled: false
   storage: 100Mi
+  # -- Set a storageClassName, otherwise the default class is used.
+  storageClassName: ~
 
 ports:
   - name: http
