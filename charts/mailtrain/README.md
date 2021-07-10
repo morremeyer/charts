@@ -25,6 +25,9 @@ The following table lists the configurable parameters of the chart and the defau
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
 | ingress.hosts[0].paths | list | `[]` |  |
 | ingress.tls | list | `[]` |  |
+| livenessProbe.failureThreshold | int | `6` |  |
+| livenessProbe.httpGet.path | string | `"/"` |  |
+| livenessProbe.httpGet.port | string | `"http"` |  |
 | mailtrain.language | string | `"en"` |  |
 | mailtrain.mysql.database | string | `"mailtrain"` |  |
 | mailtrain.mysql.host | string | `""` |  |
@@ -35,10 +38,17 @@ The following table lists the configurable parameters of the chart and the defau
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
+| readinessProbe.httpGet.path | string | `"/"` |  |
+| readinessProbe.httpGet.port | string | `"http"` |  |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
+| startupProbe.failureThreshold | int | `12` |  |
+| startupProbe.httpGet.path | string | `"/"` |  |
+| startupProbe.httpGet.port | string | `"http"` |  |
+| startupProbe.initialDelaySeconds | int | `30` |  |
+| startupProbe.periodSeconds | int | `15` |  |
 | tolerations | list | `[]` |  |
 
