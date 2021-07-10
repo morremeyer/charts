@@ -93,6 +93,15 @@ entries:
     version: 1.0.0
   mailtrain:
   - apiVersion: v2
+    created: "2021-07-10T20:02:20.481392633Z"
+    description: Runs mailtrain in your kubernetes cluster
+    digest: 9ef8725a673b6fff37a5350fb83fa2d6f3b2c39b992546860e4a9038910eb566
+    name: mailtrain
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/mailtrain-1.1.0/mailtrain-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2021-05-23T23:45:45.94090594Z"
     description: Runs mailtrain in your kubernetes cluster
     digest: 21d0dd841c38ab5f40399fb8dc5f35745df28e841966fb0c9c20bc1c54eb3931
@@ -120,4 +129,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/namespaces-0.1.0/namespaces-0.1.0.tgz
     version: 0.1.0
-generated: "2021-06-30T20:30:31.059396113Z"
+generated: "2021-07-10T20:02:20.481428433Z"
