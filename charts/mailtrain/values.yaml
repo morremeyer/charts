@@ -73,3 +73,22 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+  failureThreshold: 6
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+startupProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 30
+  failureThreshold: 12
+  periodSeconds: 15
