@@ -2,4 +2,4 @@ apiVersion: v2
 name: backup
 description: Chart to back up PVCs with restic and regularly clean up the snapshots.
 type: application
-version: 1.0.0
+version: 1.0.1
