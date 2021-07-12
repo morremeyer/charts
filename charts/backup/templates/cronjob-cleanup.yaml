@@ -31,7 +31,8 @@ spec:
             {{- else }}
               - --no-cache
               - --verbose
-              - --group-by paths
+              - --group-by
+              - paths
               - --repo
               - {{ .Values.repo }}
               - forget
