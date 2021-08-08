@@ -6,6 +6,7 @@ metadata:
     {{- include "backup.labels" . | nindent 4 }}
 spec:
   schedule: {{ .Values.backupJob.schedule | quote }}
+  concurrencyPolicy: {{ .Values.backupJob.concurrencyPolicy }}
   jobTemplate:
     spec:
       template:

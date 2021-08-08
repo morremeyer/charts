@@ -40,6 +40,7 @@ The following table lists the configurable parameters of the chart and the defau
 | backupJob.backup.image.repository | string | `"restic/restic"` |  |
 | backupJob.backup.image.tag | string | `"0.12.0"` |  |
 | backupJob.backup.resources | object | `{}` | resources for the backup container |
+| backupJob.concurrencyPolicy | string | `"Forbid"` | concurrencyPolicy for the backup Jobs |
 | backupJob.init | object | `{"image":{"pullPolicy":"IfNotPresent","repository":"restic/restic","tag":"0.12.0"},"resources":{}}` | Configuration for the repository init container |
 | backupJob.init.resources | object | `{}` | resources for the init container |
 | backupJob.nodeSelector | object | `{}` |  |
@@ -50,6 +51,7 @@ The following table lists the configurable parameters of the chart and the defau
 | cleanupJob.affinity | object | `{}` |  |
 | cleanupJob.args | list | `[]` | arguments for the cleanup. **Automatically generated, only set when necessary** |
 | cleanupJob.command | string | `nil` | command for the cleanup. Defaults to '/usr/bin/restic' by the upstream container. |
+| cleanupJob.concurrencyPolicy | string | `"Forbid"` | concurrencyPolicy for the cleanup Jobs |
 | cleanupJob.enabled | bool | `true` | If backups shall be cleaned up after some time |
 | cleanupJob.image.pullPolicy | string | `"IfNotPresent"` |  |
 | cleanupJob.image.repository | string | `"restic/restic"` |  |
