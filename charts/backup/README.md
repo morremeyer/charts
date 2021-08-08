@@ -41,18 +41,21 @@ The following table lists the configurable parameters of the chart and the defau
 | backupJob.backup.image.tag | string | `"0.12.0"` |  |
 | backupJob.backup.resources | object | `{}` | resources for the backup container |
 | backupJob.concurrencyPolicy | string | `"Forbid"` | concurrencyPolicy for the backup Jobs |
+| backupJob.failedJobsHistoryLimit | int | `1` | failedJobsHistoryLimit for the backup Jobs |
 | backupJob.init | object | `{"image":{"pullPolicy":"IfNotPresent","repository":"restic/restic","tag":"0.12.0"},"resources":{}}` | Configuration for the repository init container |
 | backupJob.init.resources | object | `{}` | resources for the init container |
 | backupJob.nodeSelector | object | `{}` |  |
 | backupJob.restartPolicy | string | `"OnFailure"` | restartPolicy for the backup Jobs |
 | backupJob.schedule | string | `"17 3 * * *"` | when to run backups |
 | backupJob.securityContext | object | `{}` |  |
+| backupJob.successfulJobsHistoryLimit | int | `3` | successfulJobsHistoryLimit for the backup Jobs |
 | backupJob.tolerations | list | `[]` |  |
 | cleanupJob.affinity | object | `{}` |  |
 | cleanupJob.args | list | `[]` | arguments for the cleanup. **Automatically generated, only set when necessary** |
 | cleanupJob.command | string | `nil` | command for the cleanup. Defaults to '/usr/bin/restic' by the upstream container. |
 | cleanupJob.concurrencyPolicy | string | `"Forbid"` | concurrencyPolicy for the cleanup Jobs |
 | cleanupJob.enabled | bool | `true` | If backups shall be cleaned up after some time |
+| cleanupJob.failedJobsHistoryLimit | int | `1` | failedJobsHistoryLimit for the cleanup Jobs |
 | cleanupJob.image.pullPolicy | string | `"IfNotPresent"` |  |
 | cleanupJob.image.repository | string | `"restic/restic"` |  |
 | cleanupJob.image.tag | string | `"0.12.0"` |  |
@@ -65,6 +68,7 @@ The following table lists the configurable parameters of the chart and the defau
 | cleanupJob.restartPolicy | string | `"OnFailure"` | restartPolicy for the cleanup Jobs |
 | cleanupJob.schedule | string | `"17 15 * * *"` | when to run the cleanup |
 | cleanupJob.securityContext | object | `{}` |  |
+| cleanupJob.successfulJobsHistoryLimit | int | `3` | successfulJobsHistoryLimit for the cleanup Jobs |
 | cleanupJob.tolerations | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |

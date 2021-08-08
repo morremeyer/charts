@@ -7,6 +7,8 @@ metadata:
 spec:
   schedule: {{ .Values.backupJob.schedule | quote }}
   concurrencyPolicy: {{ .Values.backupJob.concurrencyPolicy }}
+  successfulJobsHistoryLimit: {{ .Values.backupJob.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.backupJob.failedJobsHistoryLimit }}
   jobTemplate:
     spec:
       template:

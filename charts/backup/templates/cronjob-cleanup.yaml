@@ -8,6 +8,8 @@ metadata:
 spec:
   schedule: {{ .Values.cleanupJob.schedule | quote }}
   concurrencyPolicy: {{ .Values.cleanupJob.concurrencyPolicy }}
+  successfulJobsHistoryLimit: {{ .Values.cleanupJob.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.cleanupJob.failedJobsHistoryLimit }}
   jobTemplate:
     spec:
       template:
