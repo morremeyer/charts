@@ -10,6 +10,9 @@ spec:
   jobTemplate:
     spec:
       template:
+        metadata:
+          labels:
+            {{- include "backup.selectorLabels" . | nindent 14 }}
         spec:
           {{- with .Values.imagePullSecrets }}
           imagePullSecrets:
