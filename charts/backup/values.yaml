@@ -32,6 +32,12 @@ backupJob:
 
   securityContext: {}
 
+  # -- successfulJobsHistoryLimit for the backup Jobs
+  successfulJobsHistoryLimit: 3
+
+  # -- failedJobsHistoryLimit for the backup Jobs
+  failedJobsHistoryLimit: 1
+
   backup:
     image:
       repository: restic/restic
@@ -103,3 +109,9 @@ cleanupJob:
   affinity: {}
 
   securityContext: {}
+
+  # -- successfulJobsHistoryLimit for the cleanup Jobs
+  successfulJobsHistoryLimit: 3
+
+  # -- failedJobsHistoryLimit for the cleanup Jobs
+  failedJobsHistoryLimit: 1
