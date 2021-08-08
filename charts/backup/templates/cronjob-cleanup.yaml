@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "backup.labels" . | nindent 4 }}
 spec:
-  schedule: {{ .Values.cleanupJob.schedule }}
+  schedule: {{ .Values.cleanupJob.schedule | quote }}
   jobTemplate:
     spec:
       template:
