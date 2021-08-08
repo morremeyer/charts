@@ -14,6 +14,9 @@ backupJob:
   # -- when to run backups
   schedule: "17 3 * * *"
 
+  # -- concurrencyPolicy for the backup Jobs
+  concurrencyPolicy: Forbid
+
   # -- restartPolicy for the backup Jobs
   restartPolicy: OnFailure
 
@@ -72,6 +75,9 @@ cleanupJob:
 
   # -- number of yearly snapshots to keep
   keepYearly: 2
+
+  # -- concurrencyPolicy for the cleanup Jobs
+  concurrencyPolicy: Forbid
 
   # -- restartPolicy for the cleanup Jobs
   restartPolicy: OnFailure
