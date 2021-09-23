@@ -42,7 +42,7 @@ backupJob:
     image:
       repository: restic/restic
       pullPolicy: IfNotPresent
-      tag: 0.12.0
+      tag: 0.12.1
 
     # -- command for the backup. Defaults to '/usr/bin/restic' by the upstream container.
     command: ~
@@ -58,7 +58,7 @@ backupJob:
     image:
       repository: restic/restic
       pullPolicy: IfNotPresent
-      tag: 0.12.0
+      tag: 0.12.1
 
     # -- resources for the init container
     resources: {}
@@ -91,7 +91,7 @@ cleanupJob:
   image:
     repository: restic/restic
     pullPolicy: IfNotPresent
-    tag: 0.12.0
+    tag: 0.12.1
 
   # -- command for the cleanup. Defaults to '/usr/bin/restic' by the upstream container.
   command: ~
