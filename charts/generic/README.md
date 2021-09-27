@@ -49,7 +49,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
-| image.tag | string | `"1.20.0"` |  |
+| image.tag | string | `"1.21.3"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `nil` | The ingressClassName for this Ingress resource |
