@@ -38,11 +38,11 @@ The following table lists the configurable parameters of the chart and the defau
 | backupJob.backup.command | string | `nil` | command for the backup. Defaults to '/usr/bin/restic' by the upstream container. |
 | backupJob.backup.image.pullPolicy | string | `"IfNotPresent"` |  |
 | backupJob.backup.image.repository | string | `"restic/restic"` |  |
-| backupJob.backup.image.tag | string | `"0.12.0"` |  |
+| backupJob.backup.image.tag | string | `"0.12.1"` |  |
 | backupJob.backup.resources | object | `{}` | resources for the backup container |
 | backupJob.concurrencyPolicy | string | `"Forbid"` | concurrencyPolicy for the backup Jobs |
 | backupJob.failedJobsHistoryLimit | int | `1` | failedJobsHistoryLimit for the backup Jobs |
-| backupJob.init | object | `{"image":{"pullPolicy":"IfNotPresent","repository":"restic/restic","tag":"0.12.0"},"resources":{}}` | Configuration for the repository init container |
+| backupJob.init | object | `{"image":{"pullPolicy":"IfNotPresent","repository":"restic/restic","tag":"0.12.1"},"resources":{}}` | Configuration for the repository init container |
 | backupJob.init.resources | object | `{}` | resources for the init container |
 | backupJob.nodeSelector | object | `{}` |  |
 | backupJob.restartPolicy | string | `"OnFailure"` | restartPolicy for the backup Jobs |
@@ -58,7 +58,7 @@ The following table lists the configurable parameters of the chart and the defau
 | cleanupJob.failedJobsHistoryLimit | int | `1` | failedJobsHistoryLimit for the cleanup Jobs |
 | cleanupJob.image.pullPolicy | string | `"IfNotPresent"` |  |
 | cleanupJob.image.repository | string | `"restic/restic"` |  |
-| cleanupJob.image.tag | string | `"0.12.0"` |  |
+| cleanupJob.image.tag | string | `"0.12.1"` |  |
 | cleanupJob.keepDaily | int | `8` | number of daily snapshots to keep |
 | cleanupJob.keepMonthly | int | `13` | number of monthly snapshots to keep |
 | cleanupJob.keepWeekly | int | `5` | number of weekly snapshots to keep |
