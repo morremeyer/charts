@@ -30,7 +30,7 @@ spec:
               - /bin/sh
             args:
               - -c
-              - "restic -r {{ .Values.repo }} snapshots || restic -r {{ .Values.repo }} init"
+              - "restic -r {{ .Values.repo }} unlock || restic -r {{ .Values.repo }} init"
             envFrom:
               - secretRef:
                   name: {{ .Values.secretName }}
