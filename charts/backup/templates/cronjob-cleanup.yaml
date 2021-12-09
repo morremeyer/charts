@@ -23,8 +23,22 @@ spec:
           {{- end }}
           securityContext:
             {{- toYaml .Values.cleanupJob.securityContext | nindent 12 }}
+          initContainers:
+          - name: init
+            image: "{{ .Values.cleanupJob.image.repository }}:{{ .Values.cleanupJob.image.tag }}"
+            imagePullPolicy: {{ .Values.cleanupJob.image.pullPolicy }}
+            command:
+              - /bin/sh
+            args:
+              - -c
+              - "restic -r {{ .Values.repo }} unlock"
+            envFrom:
+              - secretRef:
+                  name: {{ .Values.secretName }}
+            resources:
+              {{- toYaml .Values.cleanupJob.resources | nindent 14 }}
           containers:
-          - name: backup
+          - name: cleanup
             image: "{{ .Values.cleanupJob.image.repository }}:{{ .Values.cleanupJob.image.tag }}"
             imagePullPolicy: {{ .Values.cleanupJob.image.pullPolicy }}
             {{- if .Values.cleanupJob.command }}
