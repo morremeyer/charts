@@ -2,4 +2,4 @@ apiVersion: v2
 name: namespaces
 description: Deploy namespaces with (default) networkpolicies
 type: application
-version: 1.0.0
+version: 1.1.0

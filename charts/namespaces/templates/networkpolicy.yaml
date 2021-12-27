@@ -9,6 +9,8 @@ kind: NetworkPolicy
 metadata:
   name: {{ .name }}
   namespace: {{ $namespaceName }}
+  annotations:
+    helm.sh/resource-policy: keep
 spec:
   {{- toYaml .spec | nindent 2}}
 {{- end }}
@@ -20,6 +22,8 @@ kind: NetworkPolicy
 metadata:
   name: {{ .name }}
   namespace: {{ $namespaceName }}
+  annotations:
+    helm.sh/resource-policy: keep
 spec:
   {{- toYaml .spec | nindent 2}}
 {{- end -}}
