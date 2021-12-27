@@ -2,10 +2,6 @@
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
-## Configuration
-
-The following table lists the configurable parameters of the chart and the default values.
-
 ## Upgrading
 
 ### To 2.0.0
