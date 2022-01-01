@@ -93,6 +93,16 @@ entries:
     version: 1.0.0
   generic:
   - apiVersion: v2
+    created: "2022-01-01T16:37:06.657587559Z"
+    description: A chart for generic applications. Use this if you need to deploy
+      something without wanting to build a fully fledged new helm chart.
+    digest: 8a768c2299e777d7a29f4a38ab778e2ac238e6db026e96ce29897128a5e7daab
+    name: generic
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/generic-2.4.1/generic-2.4.1.tgz
+    version: 2.4.1
+  - apiVersion: v2
     created: "2021-09-27T18:15:12.717273125Z"
     description: A chart for generic applications. Use this if you need to deploy
       something without wanting to build a fully fledged new helm chart.
@@ -212,6 +222,15 @@ entries:
     version: 1.0.0
   namespaces:
   - apiVersion: v2
+    created: "2022-01-01T16:37:06.800885898Z"
+    description: Deploy namespaces with (default) networkpolicies
+    digest: 24408a7625fd6f4db85bdb63f8a1c03457ceeb811f68eec2dc309714c4cf5d8e
+    name: namespaces
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/namespaces-1.1.0/namespaces-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2021-05-24T14:04:49.863655158Z"
     description: Deploy namespaces with (default) networkpolicies
     digest: 52e05e16bfd0a100ada54914c1c59e65e03b926d3582a906c7b61f9a56f13be5
@@ -229,4 +248,14 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/namespaces-0.1.0/namespaces-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-09T15:51:26.546889333Z"
+  znc:
+  - apiVersion: v2
+    created: "2022-01-01T16:37:06.95708952Z"
+    description: Installs ZNC (an IRC bouncer) to your cluster
+    digest: 3a5e7dd15aea9a590068b50048f5edcd0111c24a8ce4886a50851cbbe1e4ce00
+    name: znc
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-01-01T16:37:06.957168222Z"
