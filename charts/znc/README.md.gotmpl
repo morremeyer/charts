@@ -1,0 +1,42 @@
+{{ template "chart.header" . }}
+
+:warning: This chart is not production ready. It does not allow access to the IRC port from outside of the cluster yet. Please wait for version 0.2.0 before you use this chart.
+
+{{ template "chart.description" . }}
+
+## TCP port access
+
+As Ingress resources don’t support TCP (yet?), you'll need to define your own way of forwarding traffic to the ZNC pod.
+
+If you use ingress-nginx with the official helm chart, you can use the [tcp services](https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml#L884-L888) as follows:
+
+```
+tcp:
+  6697: "default/example-tcp-svc:9000"
+```
+
+## Creating the initial password
+
+You need to supply an initial password for the initial user (default name `admin`).
+
+To create the password, you need to run `znc --makepass`. You can do this any way you like, one example is shown below
+
+```
+# Start the ZNC docker container
+docker run --rm -it --entrypoint /bin/sh znc:1.8.2
+
+# Run the 'znc --makeconf' command
+/bin/su znc -s /bin/sh -c '/opt/znc/bin/znc --makepass'
+
+# Now copy the values printed to stdout and paste them into your values. See the documentation of the 'config' key for details.
+```
+
+:information_source: This password is the initial password. If you change it in the web interface later, it won't be overridden.
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+{{ template "chart.valuesSection" . }}
+
+{{ template "chart.maintainersSection" . }}

@@ -1,0 +1,5 @@
+apiVersion: v2
+name: znc
+description: Installs ZNC (an IRC bouncer) to your cluster
+type: application
+version: 0.1.0

@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "znc.fullname" . }}
+  labels:
+    {{- include "znc.labels" . | nindent 4 }}
+data:
+  znc.conf: |
+    Version = 1.8.2
+
+    <Listener irc>
+      AllowIRC = true
+      AllowWeb = false
+      IPv4 = true
+      IPv6 = false
+      Port = 6697
+      SSL = false
+      URIPrefix = /
+    </Listener>
+
+    <Listener http>
+      AllowIRC = false
+      AllowWeb = true
+      IPv4 = true
+      IPv6 = false
+      Port = 8080
+      SSL = false
+      URIPrefix = /
+    </Listener>
+
+    LoadModule = webadmin
+
+    <User {{ .Values.config.user }}>
+            Pass       = {{ .Values.config.method}}#{{ required "You need to specify .Values.config.hash" .Values.config.hash }}#{{ required "You need to specify .Values.config.salt" .Values.config.salt }}#
+            Admin      = true
+            Nick       = {{ .Values.config.user }}
+            AltNick    = {{ .Values.config.user }}_
+            Ident      = {{ .Values.config.user }}
+            LoadModule = chansaver
+            LoadModule = controlpanel
+            LoadModule = nickserv
+    </User>
+
