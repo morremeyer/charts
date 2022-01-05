@@ -58,6 +58,10 @@ spec:
             envFrom:
               - secretRef:
                   name: {{ .Values.secretName }}
+            {{- with .Values.backupJob.env }}
+            env:
+              {{- toYaml . | nindent 14}}
+            {{- end }}
             resources:
               {{- toYaml .Values.backupJob.backup.resources | nindent 14 }}
             {{- if .Values.pvc }}

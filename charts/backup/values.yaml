@@ -11,6 +11,9 @@ nameOverride: ""
 fullnameOverride: ""
 
 backupJob:
+  # -- Additional environment values to load. Only applies to the backup container, not the init containers that initializes the restic repository. Has to match the pod.spec.containers.env spec.
+  env: []
+
   # -- when to run backups
   schedule: "17 3 * * *"
 

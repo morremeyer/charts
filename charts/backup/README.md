@@ -41,6 +41,7 @@ The following table lists the configurable parameters of the chart and the defau
 | backupJob.backup.image.tag | string | `"0.12.1"` |  |
 | backupJob.backup.resources | object | `{}` | resources for the backup container |
 | backupJob.concurrencyPolicy | string | `"Forbid"` | concurrencyPolicy for the backup Jobs |
+| backupJob.env | list | `[]` | Additional environment values to load. Only applies to the backup container, not the init containers that initializes the restic repository. Has to match the pod.spec.containers.env spec. |
 | backupJob.failedJobsHistoryLimit | int | `1` | failedJobsHistoryLimit for the backup Jobs |
 | backupJob.init | object | `{"image":{"pullPolicy":"IfNotPresent","repository":"restic/restic","tag":"0.12.1"},"resources":{}}` | Configuration for the repository init container |
 | backupJob.init.resources | object | `{}` | resources for the init container |
