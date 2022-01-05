@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   backup:
   - apiVersion: v2
+    created: "2022-01-05T23:20:56.432393281Z"
+    description: Chart to back up PVCs with restic and regularly clean up the snapshots.
+    digest: 82ea800d211a107e49af4f42a90344b319dd41bc45ae6efa440107f78fd4ee54
+    name: backup
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/backup-2.6.0/backup-2.6.0.tgz
+    version: 2.6.0
+  - apiVersion: v2
     created: "2021-12-09T15:51:26.546497905Z"
     description: Chart to back up PVCs with restic and regularly clean up the snapshots.
     digest: c3f0c0b90e8de3b49b9ac444d9515e3dd6e511539eccc7b116f36d5c22c1a7f4
@@ -258,4 +267,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-01-01T16:37:06.957168222Z"
+generated: "2022-01-05T23:20:56.432717683Z"
