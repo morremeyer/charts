@@ -20,8 +20,10 @@ spec:
           imagePullSecrets:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- with .Values.backupJob.securityContext }}
           securityContext:
-            {{- toYaml .Values.backupJob.securityContext | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           initContainers:
           - name: init
             image: "{{ .Values.backupJob.init.image.repository }}:{{ .Values.backupJob.init.image.tag }}"
@@ -34,8 +36,10 @@ spec:
             envFrom:
               - secretRef:
                   name: {{ .Values.secretName }}
+            {{- with .Values.backupJob.init.resources }}
             resources:
-              {{- toYaml .Values.backupJob.init.resources | nindent 14 }}
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
           containers:
           - name: backup
             image: "{{ .Values.backupJob.backup.image.repository }}:{{ .Values.backupJob.backup.image.tag }}"
@@ -62,8 +66,10 @@ spec:
             env:
               {{- toYaml . | nindent 14}}
             {{- end }}
+            {{- with .Values.backupJob.backup.resources }}
             resources:
-              {{- toYaml .Values.backupJob.backup.resources | nindent 14 }}
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
             {{- if .Values.pvc }}
             volumeMounts:
               - mountPath: "/data"

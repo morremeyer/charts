@@ -21,8 +21,10 @@ spec:
           imagePullSecrets:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- with .Values.cleanupJob.securityContext }}
           securityContext:
-            {{- toYaml .Values.cleanupJob.securityContext | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           initContainers:
           - name: init
             image: "{{ .Values.cleanupJob.image.repository }}:{{ .Values.cleanupJob.image.tag }}"
@@ -35,8 +37,10 @@ spec:
             envFrom:
               - secretRef:
                   name: {{ .Values.secretName }}
+            {{- with .Values.cleanupJob.resources }}
             resources:
-              {{- toYaml .Values.cleanupJob.resources | nindent 14 }}
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
           containers:
           - name: cleanup
             image: "{{ .Values.cleanupJob.image.repository }}:{{ .Values.cleanupJob.image.tag }}"
@@ -69,8 +73,10 @@ spec:
             envFrom:
               - secretRef:
                   name: {{ .Values.secretName }}
+            {{- with .Values.cleanupJob.resources }}
             resources:
-              {{- toYaml .Values.cleanupJob.resources | nindent 14 }}
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
           restartPolicy: {{ .Values.cleanupJob.restartPolicy }}
           {{- with .Values.cleanupJob.nodeSelector }}
           nodeSelector:
