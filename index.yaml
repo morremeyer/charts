@@ -109,6 +109,16 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/backup-1.0.0/backup-1.0.0.tgz
     version: 1.0.0
+  cronjob:
+  - apiVersion: v2
+    created: "2022-01-27T13:01:24.409755069Z"
+    description: Run jobs on a schedule
+    digest: 3bdfd60331ea083962a44612141489c03f891485722cbab26238bdeb28dacbf0
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/cronjob-1.0.1/cronjob-1.0.1.tgz
+    version: 1.0.1
   generic:
   - apiVersion: v2
     created: "2022-01-27T12:51:56.278189953Z"
@@ -286,4 +296,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-01-27T12:51:56.278308258Z"
+generated: "2022-01-27T13:01:24.409839069Z"
