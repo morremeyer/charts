@@ -45,7 +45,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
-| image.tag | string | `"1.21.3"` |  |
+| image.tag | string | `"1.21.5"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `nil` | The ingressClassName for this Ingress resource |
@@ -63,6 +63,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | persistence.enabled | bool | `false` |  |
+| persistence.mountPoint | string | `"/data"` | Where the persistent volume is mounted |
 | persistence.storage | string | `"100Mi"` |  |
 | persistence.storageClassName | string | `nil` | Set a storageClassName, otherwise the default class is used. |
 | podAnnotations | object | `{}` |  |

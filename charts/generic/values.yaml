@@ -62,6 +62,8 @@ annotations: {}
 
 persistence:
   enabled: false
+  # -- Where the persistent volume is mounted
+  mountPoint: /data
   storage: 100Mi
   # -- Set a storageClassName, otherwise the default class is used.
   storageClassName: ~
