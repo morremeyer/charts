@@ -1,0 +1,87 @@
+image:
+  repository: alpine
+  pullPolicy: IfNotPresent
+  tag: "3.15.0"
+
+# -- The number of successful finished jobs to retain.
+successfulJobsHistoryLimit: ~
+
+# -- The number of failed finished jobs to retain.
+failedJobsHistoryLimit: ~
+
+# -- schedule for the cronjob.
+schedule: "17 3 * * *"
+
+# -- if the Job should restart when the command fails
+restartPolicy: Always
+
+# -- initContainers to use. Requires a list of valid container specs.
+initContainers: []
+
+# -- pull secrets for the specified image
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: true
+
+  # -- Annotations to add to the service account
+  annotations: {}
+
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template.
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+# -- the command or binary to run
+command: ["/bin/echo"]
+
+# -- arguments to pass to the command or binary being run
+args:
+  - '{"level": "info", "message": "no arguments defined, nothing to do"}'
+
+
+# -- Directly set environment variables
+env: []
+
+# -- Set environment variables from configMaps or Secrets
+envValueFrom: {}
+
+additionalVolumeMounts: []
+
+additionalVolumes: []
+
+labels: {}
+
+annotations: {}
+
+persistence:
+  enabled: false
+
+  # -- Where the persistent volume is mounted
+  mountPath: /data
+
+  # -- the amount of space to require for the volume
+  storage: 1Gi
+
+  # -- Set a storageClassName, otherwise the default class is used.
+  storageClassName: ~
+
+# -- requests and limits for the container
+resources: {}
+
+# -- nodeSelector object for the pod
+nodeSelector: {}
+
+# -- List of tolerations for the pod
+tolerations: []
+
+# -- affinity object for the pod
+affinity: {}
