@@ -13,7 +13,7 @@ failedJobsHistoryLimit: ~
 schedule: "17 3 * * *"
 
 # -- if the Job should restart when the command fails
-restartPolicy: Always
+restartPolicy: OnFailure
 
 # -- initContainers to use. Requires a list of valid container specs.
 initContainers: []
