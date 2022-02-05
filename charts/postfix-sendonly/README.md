@@ -1,13 +1,14 @@
 # postfix-sendonly
 
-Sendonly mail services for your cluster
+Sendonly relay mail services for your cluster
 
-## Creating a DKIM key
+## Setup
 
-To create the needed DKIM key, follow the instructions in [„Generating a DKIM key“](https://git.mor.re/docker-images/postfix-sendonly#generating-a-dkim-key).
+You need to provide a valid login for your provider. Currently, only submission on port 465 is supported.
 
-You need to deploy this key into the cluster in a secret, specify its name in `.Values.existingSecret`.
-The DKIM private key has to be stored in the key `key`.
+You need to deploy this user credentials into the cluster in a secret, specify its name in `.Values.existingSecret`.
+
+The user name has to be stored in `user`, the password in `password`.
 
 ## Values
 
@@ -18,8 +19,7 @@ The DKIM private key has to be stored in the key `key`.
 | autoscaling.maxReplicas | int | `5` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| domain | string | `nil` |  |
-| existingSecret | string | `"postfix-sendonly-dkim"` |  |
+| existingSecret | string | `"postfix-sendonly"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"registry.git.mor.re/docker-images/postfix-sendonly"` |  |
@@ -29,6 +29,8 @@ The DKIM private key has to be stored in the key `key`.
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext.fsGroup | int | `101` |  |
+| relay.host | string | `"smtp.mailbox.org"` |  |
+| relay.port | int | `465` |  |
 | replicaCount | int | `2` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |

@@ -37,8 +37,20 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: DOMAIN
-              value: {{ required "You must specify .Values.domain" .Values.domain }}
+            - name: RELAY_HOST
+              value: {{ .Values.relay.host }}
+            - name: RELAY_PORT
+              value: {{ .Values.relay.port | quote }}
+            - name: USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.existingSecret }}
+                  key: user
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.existingSecret }}
+                  key: password
           ports:
             - name: smtp
               containerPort: 25
@@ -47,19 +59,10 @@ spec:
             tcpSocket:
               port: smtp
             periodSeconds: 60
-          volumeMounts:
-            - name: dkim-key
-              mountPath: /etc/opendkim/domainkeys/mail.private
-              subPath: key
           {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-      volumes:
-        - name: dkim-key
-          secret:
-            secretName: {{ .Values.existingSecret }}
-            defaultMode: 0400
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

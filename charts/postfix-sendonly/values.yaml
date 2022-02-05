@@ -5,8 +5,11 @@ image:
   pullPolicy: IfNotPresent
   tag: "2022.02.05"
 
-domain: ~
-existingSecret: postfix-sendonly-dkim
+relay:
+  host: smtp.mailbox.org
+  port: 465
+
+existingSecret: postfix-sendonly
 
 imagePullSecrets: []
 nameOverride: ""
