@@ -28,7 +28,7 @@ The DKIM private key has to be stored in the key `key`.
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
-| podSecurityContext | object | `{}` |  |
+| podSecurityContext.fsGroup | int | `101` |  |
 | replicaCount | int | `2` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |

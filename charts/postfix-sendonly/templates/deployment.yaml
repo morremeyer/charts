@@ -59,6 +59,7 @@ spec:
         - name: dkim-key
           secret:
             secretName: {{ .Values.existingSecret }}
+            defaultMode: 0400
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
