@@ -111,6 +111,15 @@ entries:
     version: 1.0.0
   cronjob:
   - apiVersion: v2
+    created: "2022-02-05T19:32:21.053372673Z"
+    description: Run jobs on a schedule
+    digest: 4fbecb38e4887df0b254e99d5fe8a7fef006897dea66a179b6405ae7cbc2af6a
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/cronjob-1.1.3/cronjob-1.1.3.tgz
+    version: 1.1.3
+  - apiVersion: v2
     created: "2022-01-31T15:46:56.835902623Z"
     description: Run jobs on a schedule
     digest: e1c6d95a720ae544f92234329348f41b4bbb6ee68495aa7179155ac95b88e76b
@@ -306,6 +315,15 @@ entries:
     version: 0.1.0
   postfix-sendonly:
   - apiVersion: v2
+    created: "2022-02-05T19:32:21.183063945Z"
+    description: Sendonly mail services for your cluster
+    digest: 30657abc37fbc5ccd09b59ec8a4172b507c8092286953ec241b932ad68f143b6
+    name: postfix-sendonly
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/postfix-sendonly-1.0.2/postfix-sendonly-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2022-02-05T17:57:11.324465584Z"
     description: Sendonly mail services for your cluster
     digest: e755196fac24737987864194be4a148ef0fa745f3e46c63bfae2e6134278a7f6
@@ -324,4 +342,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-05T17:57:11.324775888Z"
+generated: "2022-02-05T19:32:21.183148446Z"
