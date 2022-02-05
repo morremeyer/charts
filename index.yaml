@@ -304,6 +304,16 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/namespaces-0.1.0/namespaces-0.1.0.tgz
     version: 0.1.0
+  postfix-sendonly:
+  - apiVersion: v2
+    created: "2022-02-05T17:57:11.324465584Z"
+    description: Sendonly mail services for your cluster
+    digest: e755196fac24737987864194be4a148ef0fa745f3e46c63bfae2e6134278a7f6
+    name: postfix-sendonly
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/postfix-sendonly-1.0.0/postfix-sendonly-1.0.0.tgz
+    version: 1.0.0
   znc:
   - apiVersion: v2
     created: "2022-01-01T16:37:06.95708952Z"
@@ -314,4 +324,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-01-31T15:46:56.836086331Z"
+generated: "2022-02-05T17:57:11.324775888Z"
