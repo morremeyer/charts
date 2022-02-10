@@ -6,7 +6,7 @@
     {
       "description": "Upgrade arbitrary dependencies with the key 'version' in a GitHub workflow file",
       "fileMatch": [
-        "^.github/workflows/*.ya?ml$"
+        "(^workflow-templates|\\.github\/workflows)\/[^/]+\\.ya?ml$"
       ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sversion:\\s*\"?(?<currentValue>.*)\"?"
