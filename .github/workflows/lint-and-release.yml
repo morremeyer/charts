@@ -19,7 +19,7 @@ jobs:
         uses: azure/setup-helm@v1
         with:
           # renovate: datasource=github-releases depName=helm/helm
-          version: v3.4.0
+          version: v3.8.0
 
       - name: Helm lint
         run:
@@ -45,7 +45,7 @@ jobs:
         uses: azure/setup-helm@v1
         with:
           # renovate: datasource=github-releases depName=helm/helm
-          version: v3.5.4
+          version: v3.8.0
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.3.0
