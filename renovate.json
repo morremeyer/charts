@@ -9,7 +9,7 @@
         "(^workflow-templates|\\.github\/workflows)\/[^/]+\\.ya?ml$"
       ],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sversion:\\s*\"?(?<currentValue>.*)\"?"
+        "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s*version:\\s*\"?(?<currentValue>.*)\"?"
       ]
     }
   ]
