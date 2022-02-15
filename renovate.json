@@ -2,6 +2,9 @@
   "extends": [
     "config:base"
   ],
+  "pre-commit": {
+    "enabled": true
+  },
   "regexManagers": [
     {
       "description": "Upgrade arbitrary dependencies with the key 'version' in a GitHub workflow file",
