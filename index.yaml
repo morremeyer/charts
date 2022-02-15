@@ -325,6 +325,15 @@ entries:
     version: 0.1.0
   postfix-sendonly:
   - apiVersion: v2
+    created: "2022-02-15T12:23:50.609938188Z"
+    description: Sendonly relay mail services for your cluster
+    digest: 3d7ee26449e49e45cf259793e312ea16e208b6cd5fb4f29d820a3177a80977b9
+    name: postfix-sendonly
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/postfix-sendonly-2.0.1/postfix-sendonly-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
     created: "2022-02-05T20:52:43.848220517Z"
     description: Sendonly relay mail services for your cluster
     digest: f15d3a2e9967e20a1d310a353e6397f40d45bde2558711bd488c8bbb88cf242e
@@ -361,4 +370,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-06T20:27:55.811568076Z"
+generated: "2022-02-15T12:23:50.756407514Z"
