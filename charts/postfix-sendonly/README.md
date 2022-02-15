@@ -23,7 +23,7 @@ The user name has to be stored in `user`, the password in `password`.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"registry.git.mor.re/docker-images/postfix-sendonly"` |  |
-| image.tag | string | `"2022.02.05"` |  |
+| image.tag | string | `"2022.02.09"` |  |
 | imagePullSecrets | list | `[]` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
