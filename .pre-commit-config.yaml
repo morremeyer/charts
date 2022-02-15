@@ -3,6 +3,3 @@ repos:
     rev: v1.7.0
     hooks:
       - id: helm-docs
-        args:
-          - --chart-search-root=charts
-          - --template-files=README.md.gotmpl
