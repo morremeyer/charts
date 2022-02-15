@@ -1,8 +1,15 @@
 {{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+{{ template "chart.badgesSection" . }}
+
+{{ template "chart.description" . }}
 
 :warning: Ingress does not support TLS termination yet. Therefore, this chart does not yet provide any ability to expose the IRC TLS port. This will follow in an upcoming version.
 
-{{ template "chart.description" . }}
+{{ template "chart.homepageLine" . }}
+{{ template "chart.maintainersSection" . }}
+{{ template "chart.sourcesSection" . }}
+{{ template "chart.requirementsSection" . }}
 
 ## TCP port access
 
@@ -33,10 +40,4 @@ docker run --rm -it --entrypoint /bin/sh znc:1.8.2
 
 :information_source: This password is the initial password. If you change it in the web interface later, it won't be overridden.
 
-{{ template "chart.sourcesSection" . }}
-
-{{ template "chart.requirementsSection" . }}
-
 {{ template "chart.valuesSection" . }}
-
-{{ template "chart.maintainersSection" . }}

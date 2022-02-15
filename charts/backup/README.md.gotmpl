@@ -1,8 +1,11 @@
 {{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+{{ template "chart.badgesSection" . }}
+
 {{ template "chart.description" . }}
-
+{{ template "chart.homepageLine" . }}
+{{ template "chart.maintainersSection" . }}
 {{ template "chart.sourcesSection" . }}
-
 {{ template "chart.requirementsSection" . }}
 
 ## Usage
@@ -32,5 +35,3 @@ For more advanced use cases, check the configuration section below or the values
 The following table lists the configurable parameters of the chart and the default values.
 
 {{ template "chart.valuesSection" . }}
-
-{{ template "chart.maintainersSection" . }}

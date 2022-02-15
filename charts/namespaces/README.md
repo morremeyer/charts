@@ -1,5 +1,7 @@
 # namespaces
 
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+
 Deploy namespaces with (default) networkpolicies
 
 ## Example
@@ -40,4 +42,3 @@ namespaces:
 | defaultNetworkPolicies | list | `[]` | NetworkPolicies that will be applied to all namespaces |
 | disableNetworkPolicies | bool | `false` | Switch to disable all NetworkPolicies |
 | namespaces | list | `[]` | List of namespaces to deploy |
-

@@ -1,5 +1,7 @@
 # generic
 
+![Version: 2.4.3](https://img.shields.io/badge/Version-2.4.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
 ## Upgrading
@@ -89,4 +91,3 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
 | successfulJobsHistoryLimit | string | `nil` | The number of successful finished jobs to retain. |
 | tolerations | list | `[]` |  |
-

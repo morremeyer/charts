@@ -1,5 +1,7 @@
 # backup
 
+![Version: 2.6.1](https://img.shields.io/badge/Version-2.6.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+
 Chart to back up PVCs with restic and regularly clean up the snapshots.
 
 ## Usage
@@ -77,4 +79,3 @@ The following table lists the configurable parameters of the chart and the defau
 | pvc | string | `nil` |  |
 | repo | string | `nil` | The repository location |
 | secretName | string | `"backup-secret"` | The secret that all containers load their environment from. See https://restic.readthedocs.io/en/latest/040_backup.html#environment-variables for variables. |
-

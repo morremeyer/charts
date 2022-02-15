@@ -1,5 +1,7 @@
 # postfix-sendonly
 
+![Version: 2.0.1](https://img.shields.io/badge/Version-2.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+
 Sendonly relay mail services for your cluster
 
 ## Setup
@@ -37,4 +39,3 @@ The user name has to be stored in `user`, the password in `password`.
 | service.port | int | `25` |  |
 | service.type | string | `"ClusterIP"` |  |
 | tolerations | list | `[]` |  |
-

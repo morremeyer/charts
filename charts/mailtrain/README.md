@@ -1,10 +1,8 @@
 # mailtrain
 
+![Version: 1.2.0](https://img.shields.io/badge/Version-1.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+
 Runs mailtrain in your kubernetes cluster
-
-## Configuration
-
-The following table lists the configurable parameters of the chart and the default values.
 
 ## Values
 
@@ -51,4 +49,3 @@ The following table lists the configurable parameters of the chart and the defau
 | startupProbe.initialDelaySeconds | int | `30` |  |
 | startupProbe.periodSeconds | int | `15` |  |
 | tolerations | list | `[]` |  |
-
