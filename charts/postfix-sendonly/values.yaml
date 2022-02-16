@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: registry.git.mor.re/docker-images/postfix-sendonly
   pullPolicy: IfNotPresent
-  tag: "2022.02.09"
+  tag: "2022.02.16"
 
 relay:
   host: smtp.mailbox.org
