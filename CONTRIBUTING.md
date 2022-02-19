@@ -15,7 +15,7 @@ To set up pre-commit to run automatically on commit, run (example for Ubuntu)
 ```sh
 pip3 install pre-commit
 
-pre-commit install
+pre-commit install --hook-type commit-msg --hook-type pre-commit
 ```
 
 ### Commit messages
