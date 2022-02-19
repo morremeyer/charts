@@ -10,6 +10,16 @@
 
 ## Upgrading
 
+### To 3.0.0
+
+Support for CronJobs has been removed. If you used the `isCronjob: true` flag, please migrate to `morremeyer/cronjob` in version `2.0.0 <= x < 3.0.0`.
+
+:warning: If you need open ports on your CronJob pod, this is not supported in the cronjob chart. This is a design decision as CronJobs should not have any incoming traffic.
+
+The cronjob chart is almost fully compatible with all existing configuration you have (except for `ports`), you just have to do one migration step:
+
+1. Remove the `isCronjob: true` value
+
 ### To 2.0.0
 
 The format for configuration environment variables has changed and is now less verbose.
