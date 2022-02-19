@@ -77,16 +77,6 @@ spec:
                 {{- toYaml . | nindent 16 }}
               {{- end }}
               {{- end }}
-              {{- with .Values.ports }}
-              ports:
-                {{- toYaml . | nindent 16 }}
-              {{- end }}
-              {{- with .Values.livenessProbe }}
-              livenessProbe: {{- toYaml . | nindent 16 }}
-              {{- end }}
-              {{- with .Values.readinessProbe }}
-              readinessProbe: {{- toYaml . | nindent 16 }}
-              {{- end }}
               {{- with .Values.resources }}
               resources: {{- toYaml .Values.resources | nindent 16 }}
               {{- end }}

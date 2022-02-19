@@ -7,4 +7,22 @@
 {{ template "chart.maintainersSection" . }}
 {{ template "chart.sourcesSection" . }}
 {{ template "chart.requirementsSection" . }}
+
+## Upgrading
+
+### To 2.0.0
+
+Support for the following has been removed:
+
+* `livenessProbe`
+* `readinessProbe`
+* `ports`
+
+This is a design decision as CronJobs should not have any incoming traffic.
+
+The following default values have been changed:
+
+* `command` from `["/bin/echo"]` to `[]`
+* `args` from `["'{"level": "info", "message": "no arguments defined, nothing to do"}'"]` to `[]`
+
 {{ template "chart.valuesSection" . }}
