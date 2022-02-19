@@ -2,4 +2,7 @@ apiVersion: v2
 name: backup
 description: Chart to back up PVCs with restic and regularly clean up the snapshots.
 type: application
-version: 2.6.1
+version: 2.6.2
+maintainers:
+  - name: morre
+    email: charts@mor.re

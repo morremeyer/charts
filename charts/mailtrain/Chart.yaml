@@ -2,4 +2,7 @@ apiVersion: v2
 name: mailtrain
 description: Runs mailtrain in your kubernetes cluster
 type: application
-version: 1.2.0
+version: 1.2.1
+maintainers:
+  - name: morre
+    email: charts@mor.re
