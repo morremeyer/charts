@@ -22,7 +22,13 @@ pip3 install pre-commit
 pre-commit install
 ```
 
-## Versioning
+### Commit messages
+
+This repository uses [Conventional Commit messages](https://www.conventionalcommits.org/en/v1.0.0/). Please ensure all your commit messages follow this syntax to enable people to quickly check what a commit does.
+
+Valid commit types are defined in [commitizen/conventional-commit-types](https://github.com/commitizen/conventional-commit-types/blob/v3.0.0/index.json).
+
+### Versioning
 
 Helm charts use semantic versioning. For the charts in this repository, only `[MAJOR].[MINOR].[PATCH]` syntax is used, without any pre-releases.
 
