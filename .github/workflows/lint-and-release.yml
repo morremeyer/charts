@@ -21,9 +21,16 @@ jobs:
           # renovate: datasource=github-releases depName=helm/helm
           version: v3.8.0
 
-      - name: Helm lint
-        run:
-          helm lint charts/*
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@v2.2.0
+
+      - name: Run chart-testing (lint)
+        run: ct lint --config ct.yaml
+
 
   release:
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -51,4 +58,7 @@ jobs:
         uses: helm/chart-releaser-action@v1.3.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+          # Skip upload of existing charts. This is useful when not bumping version numbers
+          # for simple documentation updates
           CR_SKIP_EXISTING: true
