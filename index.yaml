@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   backup:
   - apiVersion: v2
+    created: "2022-02-19T18:27:21.820833086Z"
+    description: Chart to back up PVCs with restic and regularly clean up the snapshots.
+    digest: 07bac88459eeec6fc73e917f87d8c79523f16a2eacc2d0dd91bf83cd9d92073c
+    maintainers:
+    - email: charts@mor.re
+      name: morre
+    name: backup
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/backup-2.6.2/backup-2.6.2.tgz
+    version: 2.6.2
+  - apiVersion: v2
     created: "2022-01-06T01:29:10.309353673Z"
     description: Chart to back up PVCs with restic and regularly clean up the snapshots.
     digest: 54ed9f7b363f47033a4c9f05791ff7428741b450fef4d1a3630387965e2d06fe
@@ -111,6 +123,18 @@ entries:
     version: 1.0.0
   cronjob:
   - apiVersion: v2
+    created: "2022-02-19T18:27:22.015866117Z"
+    description: Run jobs on a schedule
+    digest: 6b8f75ce0e8d73128634aba6a4d63775f666c2f97e639a00ef7814856e6867be
+    maintainers:
+    - email: charts@mor.re
+      name: morre
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/cronjob-1.1.4/cronjob-1.1.4.tgz
+    version: 1.1.4
+  - apiVersion: v2
     created: "2022-02-05T19:32:21.053372673Z"
     description: Run jobs on a schedule
     digest: 4fbecb38e4887df0b254e99d5fe8a7fef006897dea66a179b6405ae7cbc2af6a
@@ -147,6 +171,19 @@ entries:
     - https://github.com/morremeyer/charts/releases/download/cronjob-1.0.1/cronjob-1.0.1.tgz
     version: 1.0.1
   generic:
+  - apiVersion: v2
+    created: "2022-02-19T18:27:22.210199348Z"
+    description: A chart for generic applications. Use this if you need to deploy
+      something without wanting to build a fully fledged new helm chart.
+    digest: 2f40bcf86a22fce838fb056337b5ef31b58644d1e62c9175fba01bc7dda00b16
+    maintainers:
+    - email: charts@mor.re
+      name: morre
+    name: generic
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/generic-2.4.4/generic-2.4.4.tgz
+    version: 2.4.4
   - apiVersion: v2
     created: "2022-02-06T20:27:55.811341363Z"
     description: A chart for generic applications. Use this if you need to deploy
@@ -269,6 +306,18 @@ entries:
     version: 1.0.0
   mailtrain:
   - apiVersion: v2
+    created: "2022-02-19T18:27:22.395348277Z"
+    description: Runs mailtrain in your kubernetes cluster
+    digest: 2ad844d6e7707fd7a1e17db6adb0ddc5c40921d8e43f7ac5c8118ccc5ab9a3c3
+    maintainers:
+    - email: charts@mor.re
+      name: morre
+    name: mailtrain
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/mailtrain-1.2.1/mailtrain-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
     created: "2021-10-02T11:03:12.998169998Z"
     description: Runs mailtrain in your kubernetes cluster
     digest: 9a86e4eee3d900a6267f034a0a8410fa1b06d9d3ae8bbcbe53459b69d6a83c18
@@ -297,6 +346,18 @@ entries:
     version: 1.0.0
   namespaces:
   - apiVersion: v2
+    created: "2022-02-19T18:27:22.575753706Z"
+    description: Deploy namespaces with (default) networkpolicies
+    digest: afa5d07b688f05ddd83a3253c0eae754e300c8e8eac4026296b9738eb8f27ad6
+    maintainers:
+    - email: charts@mor.re
+      name: morre
+    name: namespaces
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/namespaces-1.1.1/namespaces-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v2
     created: "2022-01-01T16:37:06.800885898Z"
     description: Deploy namespaces with (default) networkpolicies
     digest: 24408a7625fd6f4db85bdb63f8a1c03457ceeb811f68eec2dc309714c4cf5d8e
@@ -324,6 +385,16 @@ entries:
     - https://github.com/morremeyer/charts/releases/download/namespaces-0.1.0/namespaces-0.1.0.tgz
     version: 0.1.0
   postfix-sendonly:
+  - apiVersion: v2
+    created: "2022-02-19T18:27:22.755386535Z"
+    deprecated: true
+    description: Sendonly relay mail services for your cluster
+    digest: e36e161116967ab6565dd063e941e1960fda91b021e37c0952e98e3169957b63
+    name: postfix-sendonly
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/postfix-sendonly-2.1.0/postfix-sendonly-2.1.0.tgz
+    version: 2.1.0
   - apiVersion: v2
     created: "2022-02-15T12:23:50.609938188Z"
     description: Sendonly relay mail services for your cluster
@@ -370,4 +441,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-15T12:23:50.756407514Z"
+generated: "2022-02-19T18:27:22.755593835Z"
