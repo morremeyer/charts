@@ -1,6 +1,6 @@
 # generic
 
-![Version: 2.4.4](https://img.shields.io/badge/Version-2.4.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -11,6 +11,16 @@ A chart for generic applications. Use this if you need to deploy something witho
 | morre | charts@mor.re |  |
 
 ## Upgrading
+
+### To 3.0.0
+
+Support for CronJobs has been removed. If you used the `isCronjob: true` flag, please migrate to `morremeyer/cronjob` in version `2.0.0 <= x < 3.0.0`.
+
+:warning: If you need open ports on your CronJob pod, this is not supported in the cronjob chart. This is a design decision as CronJobs should not have any incoming traffic.
+
+The cronjob chart is almost fully compatible with all existing configuration you have (except for `ports`), you just have to do one migration step:
+
+1. Remove the `isCronjob: true` value
 
 ### To 2.0.0
 
@@ -64,7 +74,6 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.tls | list | `[]` |  |
 | initContainers | list | `[]` |  |
-| isCronjob | bool | `false` | Set to true to create a CronJob instead of a Deployment |
 | labels | object | `{}` |  |
 | livenessProbe.httpGet.path | string | `"/"` |  |
 | livenessProbe.httpGet.port | string | `"http"` |  |
@@ -84,7 +93,6 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | replicaCount | int | `1` | number of replicas |
 | resources | object | `{}` |  |
 | restartPolicy | string | `"Always"` |  |
-| schedule | string | `"17 3 * * *"` | schedule for the cronjob. Only used if `isCronjob` is `true`. |
 | securityContext | object | `{}` |  |
 | service.ip | string | `nil` |  |
 | service.name | string | `"http"` |  |

@@ -1,14 +1,8 @@
-# -- Set to true to create a CronJob instead of a Deployment
-isCronjob: false
-
 # -- The number of successful finished jobs to retain.
 successfulJobsHistoryLimit: ~
 
 # -- The number of failed finished jobs to retain.
 failedJobsHistoryLimit: ~
-
-# -- schedule for the cronjob. Only used if `isCronjob` is `true`.
-schedule: "17 3 * * *"
 
 # -- number of replicas
 replicaCount: 1
