@@ -21,3 +21,13 @@ pip3 install pre-commit
 
 pre-commit install
 ```
+
+## Versioning
+
+Helm charts use semantic versioning. For the charts in this repository, only `[MAJOR].[MINOR].[PATCH]` syntax is used, without any pre-releases.
+
+Please bump as follows:
+
+* Major version for breaking changes (this includes updates of default values as users may need to manually update their values)
+* Minor version when you add features
+* Patch version for bug fixes and documentation updates
