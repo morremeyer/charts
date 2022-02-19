@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 1.1.4](https://img.shields.io/badge/Version-1.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -10,6 +10,23 @@ Run jobs on a schedule
 | ---- | ------ | --- |
 | morre | charts@mor.re |  |
 
+## Upgrading
+
+### To 2.0.0
+
+Support for the following has been removed:
+
+* `livenessProbe`
+* `readinessProbe`
+* `ports`
+
+This is a design decision as CronJobs should not have any incoming traffic.
+
+The following default values have been changed:
+
+* `command` from `["/bin/echo"]` to `[]`
+* `args` from `["'{"level": "info", "message": "no arguments defined, nothing to do"}'"]` to `[]`
+
 ## Values
 
 | Key | Type | Default | Description |
@@ -18,8 +35,8 @@ Run jobs on a schedule
 | additionalVolumes | list | `[]` |  |
 | affinity | object | `{}` | affinity object for the pod |
 | annotations | object | `{}` |  |
-| args | list | `["{\"level\": \"info\", \"message\": \"no arguments defined, nothing to do\"}"]` | arguments to pass to the command or binary being run |
-| command | list | `["/bin/echo"]` | the command or binary to run |
+| args | list | `[]` | arguments to pass to the command or binary being run |
+| command | list | `[]` | the command or binary to run |
 | env | list | `[]` | Directly set environment variables |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | failedJobsHistoryLimit | string | `nil` | The number of failed finished jobs to retain. |

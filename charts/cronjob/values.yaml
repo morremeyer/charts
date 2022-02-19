@@ -41,12 +41,10 @@ podSecurityContext: {}
 securityContext: {}
 
 # -- the command or binary to run
-command: ["/bin/echo"]
+command: []
 
 # -- arguments to pass to the command or binary being run
-args:
-  - '{"level": "info", "message": "no arguments defined, nothing to do"}'
-
+args: []
 
 # -- Directly set environment variables
 env: []
