@@ -1,6 +1,6 @@
 # generic
 
-![Version: 3.0.2](https://img.shields.io/badge/Version-3.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.0.3](https://img.shields.io/badge/Version-3.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -9,6 +9,29 @@ A chart for generic applications. Use this if you need to deploy something witho
 | Name | Email | Url |
 | ---- | ------ | --- |
 | morre | charts@mor.re |  |
+
+## Complex values
+
+### env
+
+You can set environment variables directly with:
+
+```yaml
+env:
+  ENV_VARIABLE_NAME: "value"
+```
+
+### envValueFrom
+
+This enables a simplified syntax to set envirnoment variables from a ConfigMap or Secret:
+
+```yaml
+envValueFrom:
+  USER:
+    secretKeyRef:
+      name: secret-name
+      key: user
+```
 
 ## Upgrading
 
