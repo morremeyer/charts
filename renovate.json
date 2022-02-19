@@ -23,7 +23,8 @@
       "matchStrings": [
         "# renovate: go-version\\s*go-version:\\s*\"?(?<currentValue>.*)\"?"
       ],
-      "datasourceTemplate": "golang-version"
+      "datasourceTemplate": "golang-version",
+      "depNameTemplate": "go"
     }
   ]
 }
