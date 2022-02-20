@@ -459,6 +459,19 @@ entries:
     version: 1.0.0
   namespaces:
   - apiVersion: v2
+    created: "2022-02-20T02:38:11.846567584Z"
+    description: Deploy namespaces with (default) networkpolicies
+    digest: bf27d745f1d5b3ce128f239677601af9e046daddd87868f18cca8f03a2f5ff59
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    - name: ekeih
+    name: namespaces
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/namespaces-3.1.0/namespaces-3.1.0.tgz
+    version: 3.1.0
+  - apiVersion: v2
     created: "2022-02-20T02:24:20.406223715Z"
     description: Deploy namespaces with (default) networkpolicies
     digest: e42bf024ffcd1053160e698351ceac7272804b7dc216fe14b95e20983143a22b
@@ -605,4 +618,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-20T02:24:20.406551121Z"
+generated: "2022-02-20T02:38:11.846757185Z"
