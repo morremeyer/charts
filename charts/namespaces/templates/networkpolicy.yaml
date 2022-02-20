@@ -1,3 +1,4 @@
+{{- $labels := include "namespaces.labels" . -}}
 {{ if not .Values.disableNetworkPolicies }}
 {{- range $namespaceName, $namespaceValues := $.Values.namespaces }}
 {{- if not $namespaceValues.disableDefaultNetworkPolicies -}}
@@ -8,6 +9,8 @@ kind: NetworkPolicy
 metadata:
   name: {{ $defaultNetworkPolicyName }}
   namespace: {{ $namespaceName }}
+  labels:
+    {{- $labels | nindent 4 }}
 {{- if $.Values.keepNetworkPolicies }}
   annotations:
     helm.sh/resource-policy: keep
@@ -23,6 +26,8 @@ kind: NetworkPolicy
 metadata:
   name: {{ $networkPolicyName }}
   namespace: {{ $namespaceName }}
+  labels:
+    {{- $labels | nindent 4 }}
 {{- if $.Values.keepNetworkPolicies }}
   annotations:
     helm.sh/resource-policy: keep
