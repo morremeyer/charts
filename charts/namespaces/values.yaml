@@ -1,6 +1,12 @@
 # -- List of namespaces to deploy
 namespaces: {}
 
+# -- Configure if namespaces should get deleted when they are removed from the chart release.
+keepNamespaces: true
+
+# -- Configure if NetworkPolicies should get deleted when they are removed from the chart release.
+keepNetworkPolicies: false
+
 # -- NetworkPolicies that will be applied to all namespaces
 defaultNetworkPolicies: {}
 

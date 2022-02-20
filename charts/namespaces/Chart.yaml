@@ -2,7 +2,7 @@ apiVersion: v2
 name: namespaces
 description: Deploy namespaces with (default) networkpolicies
 type: application
-version: 2.0.1
+version: 3.0.0
 maintainers:
   - name: morremeyer
     email: charts@mor.re

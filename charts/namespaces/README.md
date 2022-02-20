@@ -1,6 +1,6 @@
 # namespaces
 
-![Version: 2.0.1](https://img.shields.io/badge/Version-2.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Deploy namespaces with (default) networkpolicies
 
@@ -43,6 +43,10 @@ namespaces:
 ```
 
 ## Upgrading
+
+### To 3.0.0
+
+Previous versions added annotations to all namespaces and network policies to prevent Helm from deleting them when they got removed from the chart release. This release disables that behaviour for network policies. To keep the old behaviour set `keepNetworkPolicies: true`.
 
 ### To 2.0.0
 
@@ -104,4 +108,6 @@ namespaces:
 |-----|------|---------|-------------|
 | defaultNetworkPolicies | object | `{}` | NetworkPolicies that will be applied to all namespaces |
 | disableNetworkPolicies | bool | `false` | Switch to disable all NetworkPolicies |
+| keepNamespaces | bool | `true` | Configure if namespaces should get deleted when they are removed from the chart release. |
+| keepNetworkPolicies | bool | `false` | Configure if NetworkPolicies should get deleted when they are removed from the chart release. |
 | namespaces | object | `{}` | List of namespaces to deploy |
