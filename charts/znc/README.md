@@ -1,10 +1,16 @@
 # znc
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Installs ZNC (an IRC bouncer) to your cluster
 
 :warning: Ingress does not support TLS termination yet. Therefore, this chart does not yet provide any ability to expose the IRC TLS port. This will follow in an upcoming version.
+
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| morremeyer | charts@mor.re |  |
 
 ## TCP port access
 
