@@ -1,10 +1,10 @@
 {{- $labels := include "namespaces.labels" . -}}
-{{- range $.Values.namespaces }}
+{{- range $name, $v := $.Values.namespaces }}
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: {{ .name }}
+  name: {{ $name }}
   annotations:
     helm.sh/resource-policy: keep
   labels:
