@@ -1,31 +1,30 @@
 {{ if not .Values.disableNetworkPolicies }}
-{{- range $.Values.namespaces }}
-{{- $namespaceName := .name -}}
-{{- if not .disableDefaultNetworkPolicies -}}
-{{- range $.Values.defaultNetworkPolicies }}
+{{- range $namespaceName, $namespaceValues := $.Values.namespaces }}
+{{- if not $namespaceValues.disableDefaultNetworkPolicies -}}
+{{- range $defaultNetworkPolicyName, $defaultNetworkPolicy := $.Values.defaultNetworkPolicies }}
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: {{ .name }}
+  name: {{ $defaultNetworkPolicyName }}
   namespace: {{ $namespaceName }}
   annotations:
     helm.sh/resource-policy: keep
 spec:
-  {{- toYaml .spec | nindent 2}}
+  {{- toYaml $defaultNetworkPolicy.spec | nindent 2}}
 {{- end }}
 {{- end }}
-{{- range .networkPolicies }}
+{{- range $networkPolicyName, $networkPolicy := $namespaceValues.networkPolicies }}
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: {{ .name }}
+  name: {{ $networkPolicyName }}
   namespace: {{ $namespaceName }}
   annotations:
     helm.sh/resource-policy: keep
 spec:
-  {{- toYaml .spec | nindent 2}}
+  {{- toYaml $networkPolicy.spec | nindent 2}}
 {{- end -}}
 {{- end -}}
 {{- end -}}
