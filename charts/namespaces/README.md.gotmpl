@@ -41,6 +41,10 @@ namespaces:
 
 ## Upgrading
 
+### To 3.0.0
+
+Previous versions added annotations to all namespaces and network policies to prevent Helm from deleting them when they got removed from the chart release. This release disables that behaviour for network policies. To keep the old behaviour set `keepNetworkPolicies: true`.
+
 ### To 2.0.0
 
 The format to define namespaces and network policies has changed. Previously both were specified as a `list` with a `name` key. With this release a `map` is used instead with the name as key. This makes it possible to split the values into several files and merge them with helm.
