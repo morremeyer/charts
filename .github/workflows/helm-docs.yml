@@ -10,19 +10,22 @@ jobs:
   helm-docs:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-go@v2
-      with:
-        # renovate: go-version
-        go-version: 1.17.7
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          # renovate: go-version
+          go-version: 1.17.7
 
-    - name: Install helm-docs
-      run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@latest
+      - name: Install helm-docs
+        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@latest
 
-    - name: regenerate documentation
-      run: $HOME/go/bin/helm-docs
+      - name: regenerate documentation
+        run: $HOME/go/bin/helm-docs
 
-    - name: Commit updated docs
-      uses: EndBug/add-and-commit@v8
-      with:
-        message: 'docs: regenerate chart README.md'
+      - name: Commit updated docs
+        uses: EndBug/add-and-commit@v8
+        with:
+          message: "docs: regenerate chart README.md"
+
+          # Only add README.md in charts/ and all subdirectories: https://git-scm.com/docs/git-add#_examples
+          add: "charts/**/README.md"
