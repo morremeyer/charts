@@ -1,0 +1,97 @@
+name: Helm Docs & Update kube-prometheus-stack CRDs & pre-commit
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  helm-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          # renovate: go-version
+          go-version: 1.17.7
+
+      - name: Install helm-docs
+        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@latest
+
+      - name: regenerate documentation
+        run: $HOME/go/bin/helm-docs
+
+      - name: Commit updated docs
+        uses: EndBug/add-and-commit@v8
+        with:
+          message: "docs: regenerate chart README.md"
+
+          # Only add README.md in charts/ and all subdirectories: https://git-scm.com/docs/git-add#_examples
+          add: "charts/**/README.md"
+
+  update-crds:
+    runs-on: ubuntu-latest
+    needs:
+      - helm-docs
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 2
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v17
+        with:
+          sha: ${{ github.head_ref }}
+
+      - name: Remove CRDs
+        if: contains(${{ steps.changed-files.outputs.all_changed_files }}, "charts/kube-prometheus-stack-crds/Chart.yaml")
+        run: rm charts/kube-prometheus-stack-crds/templates/*
+
+      - name: Get current chart version
+        if: contains(${{ steps.changed-files.outputs.all_changed_files }}, "charts/kube-prometheus-stack-crds/Chart.yaml")
+        id: chart_version
+        run: |
+          echo "::set-output name=CHECKOUT_REF::$(sed '/^version:/!d;s/version: //' charts/kube-prometheus-stack-crds/Chart.yaml)"
+
+      - name: Check out prometheus-community/helm-charts
+        if: contains(${{ steps.changed-files.outputs.all_changed_files }}, "charts/kube-prometheus-stack-crds/Chart.yaml")
+        uses: actions/checkout@v2
+        with:
+          repository: prometheus-community/helm-charts
+          ref: "kube-prometheus-stack-${{ steps.chart_version.outputs.CHECKOUT_REF }}"
+          path: kube-prometheus-stack-upstream
+
+      - name: Copy CRDs
+        if: contains(${{ steps.changed-files.outputs.all_changed_files }}, "charts/kube-prometheus-stack-crds/Chart.yaml")
+        run: cp kube-prometheus-stack-upstream/charts/kube-prometheus-stack/crds/* charts/kube-prometheus-stack-crds/templates/
+
+      - name: Remove kube-prometheus-stack upstream clone
+        if: contains(${{ steps.changed-files.outputs.all_changed_files }}, "charts/kube-prometheus-stack-crds/Chart.yaml")
+        run: rm -r kube-prometheus-stack-upstream
+
+      - name: Commit updated CRDs
+        if: contains(${{ steps.changed-files.outputs.all_changed_files }}, "charts/kube-prometheus-stack-crds/Chart.yaml")
+        uses: EndBug/add-and-commit@v8
+        with:
+          message: "chore: update kube-prometheus-stack CRDs"
+          add: "charts/kube-prometheus-stack-crds/templates/*"
+
+  pre-commit:
+    runs-on: ubuntu-latest
+    needs:
+      - update-crds
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: actions/setup-go@v2
+        with:
+          # renovate: go-version
+          go-version: 1.17.7
+
+      - name: Install helm-docs
+        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@latest
+
+      - uses: pre-commit/action@v2.0.3
