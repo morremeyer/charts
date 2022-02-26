@@ -1,4 +1,4 @@
-name: Helm Docs
+name: Helm Docs & pre-commit
 
 on:
   pull_request:
@@ -29,3 +29,20 @@ jobs:
 
           # Only add README.md in charts/ and all subdirectories: https://git-scm.com/docs/git-add#_examples
           add: "charts/**/README.md"
+
+  pre-commit:
+    runs-on: ubuntu-latest
+    needs:
+      - helm-docs
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: actions/setup-go@v2
+        with:
+          # renovate: go-version
+          go-version: 1.17.7
+
+      - name: Install helm-docs
+        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@latest
+
+      - uses: pre-commit/action@v2.0.3
