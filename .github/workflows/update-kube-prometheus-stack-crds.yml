@@ -45,3 +45,4 @@ jobs:
         with:
           message: "chore: update kube-prometheus-stack CRDs"
           add: "charts/kube-prometheus-stack-crds/templates/*"
+          pull: "--rebase"
