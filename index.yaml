@@ -417,6 +417,19 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/generic-1.0.0/generic-1.0.0.tgz
     version: 1.0.0
+  kube-prometheus-stack-crds:
+  - apiVersion: v2
+    created: "2022-02-26T01:05:30.01927774Z"
+    description: Deploys the kube-prometheus-stack CRDs to your cluster
+    digest: 265ce1d33c6f7a19dec50b441f960be382e814a15d2890345646dfd7e70c003a
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    name: kube-prometheus-stack-crds
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/kube-prometheus-stack-crds-32.4.0/kube-prometheus-stack-crds-32.4.0.tgz
+    version: 32.4.0
   mailtrain:
   - apiVersion: v2
     created: "2022-02-20T01:49:30.080258325Z"
@@ -630,4 +643,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-22T13:49:12.106602168Z"
+generated: "2022-02-26T01:05:30.019470745Z"
