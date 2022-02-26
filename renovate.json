@@ -19,6 +19,13 @@
       ],
       "datasourceTemplate": "golang-version",
       "depNameTemplate": "go"
+    },
+    {
+      "description": "Upgrade helm chart version for kube-prometheus-stack-crds in lockstep with the actual chart",
+      "fileMatch": ["^charts/kube-prometheus-stack-crds/Chart.yaml$"],
+      "matchStrings": [
+        "# renovate datasource=(?<datasource>.*?)\\sregistryUrl=(?<registryUrl>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)"
+      ]
     }
   ]
 }
