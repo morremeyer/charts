@@ -1,2 +1,4 @@
 charts/*/README.md
 charts/*/templates/*.yaml
+charts/*/values.yaml
+charts/*/templates/tests/*.yaml
