@@ -1,6 +1,9 @@
 name: Update kube-prometheus-stack CRDs
 
 on:
+  push:
+    paths:
+      - charts/kube-prometheus-stack-crds/Chart.yaml
   pull_request:
     paths:
       - charts/kube-prometheus-stack-crds/Chart.yaml
