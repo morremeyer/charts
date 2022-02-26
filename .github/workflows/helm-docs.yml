@@ -30,6 +30,5 @@ jobs:
         uses: EndBug/add-and-commit@v8
         with:
           message: "docs: regenerate chart README.md"
-
-          # Only add README.md in charts/ and all subdirectories: https://git-scm.com/docs/git-add#_examples
           add: "charts/**/README.md"
+          pull: "--rebase"
