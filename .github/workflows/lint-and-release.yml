@@ -31,7 +31,6 @@ jobs:
       - name: Run chart-testing (lint)
         run: ct lint --config ct.yaml
 
-
   release:
     if: ${{ github.ref == 'refs/heads/main' }}
     needs:
