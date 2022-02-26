@@ -31,4 +31,4 @@ jobs:
         with:
           message: "docs: regenerate chart README.md"
           add: "charts/**/README.md"
-          pull: "--rebase"
+          pull: "--rebase --autostash"
