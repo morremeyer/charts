@@ -30,6 +30,6 @@ Helm charts use semantic versioning. For the charts in this repository, only `[M
 
 Please bump as follows:
 
-* Major version for breaking changes (this includes updates of default values as users may need to manually update their values)
-* Minor version when you add features
-* Patch version for bug fixes and documentation updates
+- Major version for breaking changes (this includes updates of default values as users may need to manually update their values)
+- Minor version when you add features
+- Patch version for bug fixes and documentation updates

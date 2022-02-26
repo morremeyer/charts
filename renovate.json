@@ -1,25 +1,19 @@
 {
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:base"],
   "pre-commit": {
     "enabled": true
   },
   "regexManagers": [
     {
       "description": "Upgrade arbitrary dependencies with the key 'version' in a GitHub workflow file",
-      "fileMatch": [
-        "(^workflow-templates|\\.github\/workflows)\/[^/]+\\.ya?ml$"
-      ],
+      "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s*version:\\s*\"?(?<currentValue>.*)\"?"
       ]
     },
     {
       "description": "Upgrade go version in a GitHub workflow",
-      "fileMatch": [
-        "(^workflow-templates|\\.github\/workflows)\/[^/]+\\.ya?ml$"
-      ],
+      "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
       "matchStrings": [
         "# renovate: go-version\\s*go-version:\\s*\"?(?<currentValue>.*)\"?"
       ],
