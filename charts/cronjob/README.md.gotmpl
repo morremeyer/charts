@@ -8,6 +8,29 @@
 {{ template "chart.sourcesSection" . }}
 {{ template "chart.requirementsSection" . }}
 
+## Complex values
+
+### env
+
+You can set environment variables directly with:
+
+```yaml
+env:
+  ENV_VARIABLE_NAME: "value"
+```
+
+### envValueFrom
+
+This enables a simplified syntax to set envirnoment variables from a ConfigMap or Secret:
+
+```yaml
+envValueFrom:
+  USER:
+    secretKeyRef:
+      name: secret-name
+      key: user
+```
+
 ## Upgrading
 
 ### To 2.0.0
