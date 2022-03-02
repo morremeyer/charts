@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 2.0.2](https://img.shields.io/badge/Version-2.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.0.3](https://img.shields.io/badge/Version-2.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -9,6 +9,29 @@ Run jobs on a schedule
 | Name | Email | Url |
 | ---- | ------ | --- |
 | morremeyer | charts@mor.re |  |
+
+## Complex values
+
+### env
+
+You can set environment variables directly with:
+
+```yaml
+env:
+  ENV_VARIABLE_NAME: "value"
+```
+
+### envValueFrom
+
+This enables a simplified syntax to set envirnoment variables from a ConfigMap or Secret:
+
+```yaml
+envValueFrom:
+  USER:
+    secretKeyRef:
+      name: secret-name
+      key: user
+```
 
 ## Upgrading
 
