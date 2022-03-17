@@ -16,6 +16,10 @@ spec:
   {{- end }}
   selector:
     matchLabels: {{- include "generic.selectorLabels" . | nindent 6 }}
+  {{- with .Values.deploymentStrategy }}
+  strategy:
+    type: {{ . }}
+  {{- end }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
