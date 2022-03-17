@@ -14,7 +14,7 @@ image:
 
 restartPolicy: Always
 
-deploymentStrategy: ~
+deploymentStrategy: {}
 
 initContainers: []
 
