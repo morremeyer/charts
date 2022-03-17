@@ -80,6 +80,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | command | string | `nil` |  |
+| deploymentStrategy | string | `nil` |  |
 | env | list | `[]` | Directly set environment variables |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | failedJobsHistoryLimit | string | `nil` | The number of failed finished jobs to retain. |
