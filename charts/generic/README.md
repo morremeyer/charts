@@ -120,6 +120,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | securityContext | object | `{}` |  |
 | service.annotations | object | `{}` |  |
 | service.ip | string | `nil` |  |
+| service.loadBalancerIP | string | `nil` |  |
 | service.name | string | `"http"` |  |
 | service.port | int | `80` |  |
 | service.protocol | string | `"TCP"` |  |

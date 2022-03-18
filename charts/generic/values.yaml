@@ -90,6 +90,9 @@ service:
   # Only for type ClusterIP
   ip: ~
 
+  ## -- Only for type LoadBalancer
+  loadBalancerIP: ~
+
 ingress:
   ## -- Enable or disable this Ingress
   enabled: false

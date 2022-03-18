@@ -20,3 +20,6 @@ spec:
   {{- if and (eq .Values.service.type "ClusterIP") (.Values.service.ip) }}
   clusterIP: {{ .Values.service.ip }}
   {{- end }}
+  {{- with .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ . }}
+  {{- end }}
