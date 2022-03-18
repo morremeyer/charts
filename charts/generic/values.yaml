@@ -14,6 +14,8 @@ image:
 
 restartPolicy: Always
 
+deploymentStrategy: {}
+
 initContainers: []
 
 imagePullSecrets: []
