@@ -1,6 +1,6 @@
 # generic
 
-![Version: 3.1.0](https://img.shields.io/badge/Version-3.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.2.0](https://img.shields.io/badge/Version-3.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -118,7 +118,9 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | resources | object | `{}` |  |
 | restartPolicy | string | `"Always"` |  |
 | securityContext | object | `{}` |  |
+| service.annotations | object | `{}` |  |
 | service.ip | string | `nil` |  |
+| service.loadBalancerIP | string | `nil` |  |
 | service.name | string | `"http"` |  |
 | service.port | int | `80` |  |
 | service.protocol | string | `"TCP"` |  |

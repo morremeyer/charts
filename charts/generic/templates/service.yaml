@@ -4,6 +4,10 @@ metadata:
   name: {{ include "generic.fullname" . }}
   labels:
     {{- include "generic.labels" . | nindent 4 }}
+  {{- with .Values.service.annotations}}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{ end }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -15,4 +19,7 @@ spec:
     {{- include "generic.selectorLabels" . | nindent 4 }}
   {{- if and (eq .Values.service.type "ClusterIP") (.Values.service.ip) }}
   clusterIP: {{ .Values.service.ip }}
+  {{- end }}
+  {{- with .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ . }}
   {{- end }}

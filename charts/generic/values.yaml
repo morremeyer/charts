@@ -81,6 +81,7 @@ readinessProbe:
 
 service:
   type: ClusterIP
+  annotations: {}
   targetPort: http
   protocol: TCP
   name: http
@@ -88,6 +89,9 @@ service:
 
   # Only for type ClusterIP
   ip: ~
+
+  ## -- Only for type LoadBalancer
+  loadBalancerIP: ~
 
 ingress:
   ## -- Enable or disable this Ingress
