@@ -118,6 +118,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | resources | object | `{}` |  |
 | restartPolicy | string | `"Always"` |  |
 | securityContext | object | `{}` |  |
+| service.annotations | object | `{}` |  |
 | service.ip | string | `nil` |  |
 | service.name | string | `"http"` |  |
 | service.port | int | `80` |  |

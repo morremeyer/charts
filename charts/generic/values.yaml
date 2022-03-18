@@ -81,6 +81,7 @@ readinessProbe:
 
 service:
   type: ClusterIP
+  annotations: {}
   targetPort: http
   protocol: TCP
   name: http
