@@ -3,6 +3,8 @@ name: Helm Docs
 on:
   pull_request:
   push:
+    branches:
+      - main
 
 jobs:
   helm-docs:
@@ -24,9 +26,11 @@ jobs:
       - name: regenerate documentation
         run: $HOME/go/bin/helm-docs
 
-      - name: Commit updated docs
-        uses: EndBug/add-and-commit@v8
-        with:
-          message: "docs: regenerate chart README.md"
-          add: "charts/**/README.md"
-          pull: "--rebase --autostash"
+      # This is commented for now as it does not trigger new runs due to the push
+      # coming from an action
+      # - name: Commit updated docs
+      #   uses: EndBug/add-and-commit@v8
+      #   with:
+      #     message: "docs: regenerate chart README.md"
+      #     add: "charts/**/README.md"
+      #     pull: "--rebase --autostash"
