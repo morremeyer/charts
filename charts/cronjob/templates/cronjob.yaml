@@ -67,11 +67,22 @@ spec:
                   valueFrom: {{- $value | toYaml | nindent 20 }}
                 {{- end }}
               {{- end }}
-              {{- if or .Values.persistence.enabled .Values.additionalVolumeMounts }}
+              {{- if or .Values.persistence.enabled .Values.additionalVolumeMounts .Values.configMap.mountPath .Values.configMap.mountFiles }}
               volumeMounts:
                 {{- if .Values.persistence.enabled }}
                 - name: data
                   mountPath: {{ .Values.persistence.mountPath }}
+                {{- end }}
+                {{- with .Values.configMap.mountPath }}
+                - name: configmap
+                  mountPath: {{ . }}
+                  readOnly: true
+                {{- end }}
+                {{- range $file := .Values.configMap.mountFiles }}
+                - name: configmap
+                  mountPath: {{ .mountPath }}
+                  subPath: {{ .subPath }}
+                  readOnly: true
                 {{- end }}
               {{- with .Values.additionalVolumeMounts }}
                 {{- toYaml . | nindent 16 }}
@@ -89,7 +100,7 @@ spec:
           {{- with .Values.tolerations }}
           tolerations: {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- if or .Values.persistence.enabled .Values.additionalVolumes }}
+          {{- if or .Values.persistence.enabled .Values.additionalVolumes .Values.configMap.mountPath .Values.configMap.mountFiles }}
           volumes:
             {{- if .Values.persistence.enabled }}
             - name: data
@@ -98,5 +109,10 @@ spec:
             {{- end }}
             {{- with .Values.additionalVolumes }}
             {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{- if or .Values.configMap.mountPath .Values.configMap.mountFiles }}
+            - name: configmap
+              configMap:
+                name: {{ include "cronjob.fullname" . }}
             {{- end }}
           {{- end }}
