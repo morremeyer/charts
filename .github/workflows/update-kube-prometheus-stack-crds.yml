@@ -44,7 +44,7 @@ jobs:
           git remote -v
 
       - name: Commit updated CRDs
-        uses: EndBug/add-and-commit@v8
+        uses: EndBug/add-and-commit@v9
         with:
           message: "chore: update kube-prometheus-stack CRDs"
           add: "charts/kube-prometheus-stack-crds/templates/*"
