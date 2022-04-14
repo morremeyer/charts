@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   backup:
   - apiVersion: v2
+    created: "2022-04-14T11:00:26.457215948Z"
+    description: Chart to back up PVCs with restic and regularly clean up the snapshots.
+    digest: 6a7b6c7acaf65a60dd4651d24ca6584da17f47161b973cb952b42e46d5aae499
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    name: backup
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/backup-2.6.4/backup-2.6.4.tgz
+    version: 2.6.4
+  - apiVersion: v2
     created: "2022-02-20T01:49:29.658476477Z"
     description: Chart to back up PVCs with restic and regularly clean up the snapshots.
     digest: de8ebed11bd0eed077b1a5b08e8dec3e5931eb513c75b0a597eb6fbdbbab642c
@@ -135,6 +147,18 @@ entries:
     version: 1.0.0
   cronjob:
   - apiVersion: v2
+    created: "2022-04-14T11:00:26.573743944Z"
+    description: Run jobs on a schedule
+    digest: b80c4f9d97e95138bb8ebfc8cdc14c7e6ebf0a07f12f05733b0d88c8208071cb
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/cronjob-2.0.4/cronjob-2.0.4.tgz
+    version: 2.0.4
+  - apiVersion: v2
     created: "2022-03-02T20:24:06.893590343Z"
     description: Run jobs on a schedule
     digest: 4d6cfb0d416bb197fc845be74b7565291716fb432ea81a5ada5a5a7279df041d
@@ -231,6 +255,19 @@ entries:
     - https://github.com/morremeyer/charts/releases/download/cronjob-1.0.1/cronjob-1.0.1.tgz
     version: 1.0.1
   generic:
+  - apiVersion: v2
+    created: "2022-04-14T11:00:26.688725339Z"
+    description: A chart for generic applications. Use this if you need to deploy
+      something without wanting to build a fully fledged new helm chart.
+    digest: c4fd17b985f4d2d04cc156a6d754e67582f388ad1eb5c6b24614f991676048ae
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    name: generic
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/generic-3.2.1/generic-3.2.1.tgz
+    version: 3.2.1
   - apiVersion: v2
     created: "2022-03-18T13:26:30.844780423Z"
     description: A chart for generic applications. Use this if you need to deploy
@@ -457,6 +494,18 @@ entries:
     version: 1.0.0
   kube-prometheus-stack-crds:
   - apiVersion: v2
+    created: "2022-04-14T11:00:26.836524461Z"
+    description: Deploys the kube-prometheus-stack CRDs to your cluster
+    digest: 8fc935a970d3541710050d84755aa3cb6e4485ef4f2a4dc5bf59a1ee051d0338
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    name: kube-prometheus-stack-crds
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/kube-prometheus-stack-crds-32.4.1/kube-prometheus-stack-crds-32.4.1.tgz
+    version: 32.4.1
+  - apiVersion: v2
     created: "2022-02-26T01:05:30.01927774Z"
     description: Deploys the kube-prometheus-stack CRDs to your cluster
     digest: 265ce1d33c6f7a19dec50b441f960be382e814a15d2890345646dfd7e70c003a
@@ -469,6 +518,18 @@ entries:
     - https://github.com/morremeyer/charts/releases/download/kube-prometheus-stack-crds-32.4.0/kube-prometheus-stack-crds-32.4.0.tgz
     version: 32.4.0
   mailtrain:
+  - apiVersion: v2
+    created: "2022-04-14T11:00:26.942527149Z"
+    description: Runs mailtrain in your kubernetes cluster
+    digest: 3a0846f7b80925e083490f5e4aab51b8d5b6837b1fba277fa7eb9041467026fd
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    name: mailtrain
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/mailtrain-1.2.3/mailtrain-1.2.3.tgz
+    version: 1.2.3
   - apiVersion: v2
     created: "2022-02-20T01:49:30.080258325Z"
     description: Runs mailtrain in your kubernetes cluster
@@ -521,6 +582,19 @@ entries:
     - https://github.com/morremeyer/charts/releases/download/mailtrain-1.0.0/mailtrain-1.0.0.tgz
     version: 1.0.0
   namespaces:
+  - apiVersion: v2
+    created: "2022-04-14T11:00:27.060080646Z"
+    description: Deploy namespaces with (default) networkpolicies
+    digest: 572e93f7cd5dd67ff3149534fbe89367592d178ad77ddbe8c29669a96be8a936
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    - name: ekeih
+    name: namespaces
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/namespaces-3.1.1/namespaces-3.1.1.tgz
+    version: 3.1.1
   - apiVersion: v2
     created: "2022-02-20T02:38:11.846567584Z"
     description: Deploy namespaces with (default) networkpolicies
@@ -661,6 +735,18 @@ entries:
     version: 1.0.0
   znc:
   - apiVersion: v2
+    created: "2022-04-14T11:00:27.170827538Z"
+    description: Installs ZNC (an IRC bouncer) to your cluster
+    digest: e38f248125ef2a6c00c415ed9a21b62746cd8a5ce75491036c3e698cb91e1934
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    name: znc
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/znc-1.0.2/znc-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2022-02-20T01:49:30.380408532Z"
     description: Installs ZNC (an IRC bouncer) to your cluster
     digest: 03feb2e72489d6d96d0a48889f58776eb852b2f634a625eb059fe09dc1de524f
@@ -681,4 +767,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-03-18T13:26:30.845062226Z"
+generated: "2022-04-14T11:00:27.171365338Z"
