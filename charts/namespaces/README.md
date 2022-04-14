@@ -1,6 +1,6 @@
 # namespaces
 
-![Version: 3.1.0](https://img.shields.io/badge/Version-3.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.1.1](https://img.shields.io/badge/Version-3.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Deploy namespaces with (default) networkpolicies
 
@@ -8,7 +8,7 @@ Deploy namespaces with (default) networkpolicies
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| morremeyer | charts@mor.re |  |
+| morremeyer | <charts@mor.re> |  |
 | ekeih |  |  |
 
 ## Example
