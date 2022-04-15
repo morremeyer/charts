@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 2.0.5](https://img.shields.io/badge/Version-2.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.1.0](https://img.shields.io/badge/Version-2.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -33,6 +33,22 @@ envValueFrom:
       key: user
 ```
 
+### configMap
+
+If you want to pass yaml as a value, you need to specify it in block style:
+
+```yaml
+configMap:
+  enabled: true
+  data:
+    config.yml: |
+      foo: bar
+      map:
+        list:
+          - foo
+          - bar
+```
+
 ## Upgrading
 
 ### To 2.0.0
@@ -60,6 +76,10 @@ The following default values have been changed:
 | annotations | object | `{}` |  |
 | args | list | `[]` | arguments to pass to the command or binary being run |
 | command | list | `[]` | the command or binary to run |
+| configMap.data | object | `{}` | The data for the ConfigMap. Both keys and values need to be strings. |
+| configMap.enabled | bool | `false` | If a ConfigMap with configurable values should be created |
+| configMap.mountFiles | list | `[]` | Mounting of individual keys in the ConfigMap as files |
+| configMap.mountPath | string | `""` | If specified, the ConfigMap is mounted as a directory at this path |
 | env | list | `[]` | Directly set environment variables |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | failedJobsHistoryLimit | string | `nil` | The number of failed finished jobs to retain. |
