@@ -41,6 +41,9 @@ backupJob:
   # -- failedJobsHistoryLimit for the backup Jobs
   failedJobsHistoryLimit: 1
 
+  # -- Additional volumes to add to the pod, e.g. to backup hostPaths.
+  additionalVolumes: []
+
   backup:
     image:
       repository: restic/restic
@@ -55,6 +58,9 @@ backupJob:
 
     # -- resources for the backup container
     resources: {}
+
+    # -- Additional volumes to mount to the restic container, e.g. to backup hostPaths.
+    additionalVolumeMounts: []
 
   # -- Configuration for the repository init container
   init:

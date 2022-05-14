@@ -1,6 +1,6 @@
 # backup
 
-![Version: 2.7.0](https://img.shields.io/badge/Version-2.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.8.0](https://img.shields.io/badge/Version-2.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Chart to back up PVCs with restic and regularly clean up the snapshots.
 
@@ -9,6 +9,7 @@ Chart to back up PVCs with restic and regularly clean up the snapshots.
 | Name | Email | Url |
 | ---- | ------ | --- |
 | morremeyer | <charts@mor.re> |  |
+| ekeih |  |  |
 
 ## Usage
 
@@ -40,8 +41,10 @@ The following table lists the configurable parameters of the chart and the defau
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| backupJob.additionalVolumes | list | `[]` | Additional volumes to add to the pod, e.g. to backup hostPaths. |
 | backupJob.affinity | object | `{}` | to specify a full `spec.affinity` map for a pod. In most cases, `backupJob.affinityLabels` will be sufficient. |
 | backupJob.affinityLabels | object | `{}` | labels of a pod that a strict affinity for scheduling will be set to. Needed for `ReadWriteOnce` PVCs. |
+| backupJob.backup.additionalVolumeMounts | list | `[]` | Additional volumes to mount to the restic container, e.g. to backup hostPaths. |
 | backupJob.backup.args | list | `[]` | arguments for the backup. **Automatically generated, only set when necessary** |
 | backupJob.backup.command | string | `nil` | command for the backup. Defaults to '/usr/bin/restic' by the upstream container. |
 | backupJob.backup.image.pullPolicy | string | `"IfNotPresent"` |  |
