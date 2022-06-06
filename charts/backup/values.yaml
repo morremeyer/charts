@@ -13,6 +13,13 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+sftpConfig:
+  # -- # Mounted as ConfigMap to /etc/ssh/ssh_known_hosts
+  knownHosts: []
+  privateKeys:
+    # -- # secret mounted to /root/.ssh/
+    fromSecret: ~
+
 backupJob:
   # -- Additional environment values to load. Only applies to the backup container, not the init containers that initializes the restic repository. Has to match the pod.spec.containers.env spec.
   env: []
@@ -113,6 +120,9 @@ cleanupJob:
 
   # -- resources for the cleanup container
   resources: {}
+
+  # -- Additional volumes to mount to the restic container, e.g. to backup hostPaths.
+  additionalVolumeMounts: []
 
   nodeSelector: {}
 
