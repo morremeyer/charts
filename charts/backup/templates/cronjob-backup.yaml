@@ -33,12 +33,31 @@ spec:
             args:
               - -c
               - "restic -r {{ .Values.repo }} unlock || restic -r {{ .Values.repo }} init"
+            {{- with .Values.backupJob.env }}
+            env:
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
             envFrom:
               - secretRef:
                   name: {{ .Values.secretName }}
             {{- with .Values.backupJob.init.resources }}
             resources:
               {{- toYaml . | nindent 14 }}
+            {{- end }}
+            {{- if or .Values.backupJob.backup.additionalVolumeMounts .Values.sftpConfig.knownHosts .Values.sftpConfig.privateKeys.existingSecret }}
+            volumeMounts:
+            {{- if .Values.sftpConfig.knownHosts }}
+              - mountPath: "/etc/ssh/ssh_known_hosts"
+                name: sftp-known-hosts
+                subPath: known_hosts
+            {{- end }}
+            {{- if .Values.sftpConfig.privateKeys.existingSecret }}
+              - mountPath: "/root/.ssh"
+                name: sftp-private-keys
+            {{- end }}
+            {{- if .Values.backupJob.backup.additionalVolumeMounts }}
+              {{- toYaml .Values.backupJob.backup.additionalVolumeMounts | nindent 14 }}
+            {{- end }}
             {{- end }}
           containers:
           - name: backup
@@ -74,12 +93,21 @@ spec:
             resources:
               {{- toYaml . | nindent 14 }}
             {{- end }}
-            {{- if or .Values.pvc .Values.backupJob.backup.additionalVolumeMounts }}
+            {{- if or .Values.pvc .Values.backupJob.backup.additionalVolumeMounts .Values.sftpConfig.knownHosts .Values.sftpConfig.privateKeys.existingSecret}}
             volumeMounts:
             {{- end }}
             {{- if .Values.pvc }}
               - mountPath: "/data"
                 name: data
+            {{- end }}
+            {{- if .Values.sftpConfig.knownHosts }}
+              - mountPath: "/etc/ssh/ssh_known_hosts"
+                name: sftp-known-hosts
+                subPath: known_hosts
+            {{- end }}
+            {{- if .Values.sftpConfig.privateKeys.existingSecret }}
+              - mountPath: "/root/.ssh/"
+                name: sftp-private-keys
             {{- end }}
             {{- if .Values.backupJob.backup.additionalVolumeMounts }}
               {{- toYaml .Values.backupJob.backup.additionalVolumeMounts | nindent 14 }}
@@ -107,13 +135,24 @@ spec:
           tolerations:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- if or .Values.pvc .Values.backupJob.additionalVolumes }}
+          {{- if or .Values.pvc .Values.backupJob.additionalVolumes .Values.sftpConfig.knownHosts .Values.sftpConfig.privateKeys.existingSecret}}
           volumes:
+          {{- end }}
+          {{- if .Values.sftpConfig.knownHosts }}
+            - name: sftp-known-hosts
+              configMap:
+                name: {{ include "backup.fullname" . }}-known-hosts
           {{- end }}
           {{- if .Values.pvc }}
             - name: data
               persistentVolumeClaim:
                 claimName: {{ .Values.pvc }}
+          {{- end }}
+          {{- if .Values.sftpConfig.privateKeys.existingSecret }}
+            - name: sftp-private-keys
+              secret:
+                secretName: {{ .Values.sftpConfig.privateKeys.existingSecret }}
+                defaultMode: 0400
           {{- end }}
           {{- if .Values.backupJob.additionalVolumes }}
             {{- toYaml .Values.backupJob.additionalVolumes | nindent 12 }}

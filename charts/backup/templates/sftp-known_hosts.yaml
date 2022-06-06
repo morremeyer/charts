@@ -1,0 +1,14 @@
+{{- if .Values.sftpConfig.knownHosts -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "backup.fullname" . }}-known-hosts
+  namespace: {{ .Release.namespace }}
+  labels:
+    {{- include "backup.labels" . | nindent 4 }}
+data:
+  known_hosts: |
+    {{- range .Values.sftpConfig.knownHosts }}
+    {{ . | indent 2 | trim }}
+    {{- end }}
+{{- end }}
