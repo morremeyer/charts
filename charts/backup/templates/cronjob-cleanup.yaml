@@ -55,6 +55,10 @@ spec:
             {{- else }}
               - --no-cache
               - --verbose
+              {{- if .Values.compression }}
+              - --compression
+              - {{ .Values.compression }}
+              {{- end }}
               - --group-by
               - paths
               - --repo

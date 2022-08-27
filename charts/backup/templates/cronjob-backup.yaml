@@ -54,6 +54,10 @@ spec:
             {{- else }}
               - --no-cache
               - --verbose
+              {{- if .Values.compression }}
+              - --compression
+              - {{ .Values.compression }}
+              {{- end }}
               - --repo
               - {{ .Values.repo }}
               - backup
