@@ -21,7 +21,7 @@ jobs:
 
       - name: Install helm-docs
         # renovate: datasource=github-releases depName=norwoodj/helm-docs
-        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@v1.8.1
+        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@v1.11.0
 
       - name: regenerate documentation
         run: $HOME/go/bin/helm-docs
