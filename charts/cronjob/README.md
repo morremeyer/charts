@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 2.1.0](https://img.shields.io/badge/Version-2.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.1.1](https://img.shields.io/badge/Version-2.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -86,7 +86,7 @@ The following default values have been changed:
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"alpine"` |  |
-| image.tag | string | `"3.15.4"` |  |
+| image.tag | string | `"3.16.2"` |  |
 | imagePullSecrets | list | `[]` | pull secrets for the specified image |
 | initContainers | list | `[]` | initContainers to use. Requires a list of valid container specs. |
 | labels | object | `{}` |  |
