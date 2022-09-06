@@ -31,6 +31,22 @@ envValueFrom:
       key: user
 ```
 
+### configMap
+
+If you want to pass yaml as a value, you need to specify it in block style:
+
+```yaml
+configMap:
+  enabled: true
+  data:
+    config.yml: |
+      foo: bar
+      map:
+        list:
+          - foo
+          - bar
+```
+
 ## Upgrading
 
 ### To 3.0.0
