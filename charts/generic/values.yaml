@@ -1,9 +1,3 @@
-# -- The number of successful finished jobs to retain.
-successfulJobsHistoryLimit: ~
-
-# -- The number of failed finished jobs to retain.
-failedJobsHistoryLimit: ~
-
 # -- number of replicas
 replicaCount: 1
 
@@ -78,6 +72,9 @@ readinessProbe:
   httpGet:
     path: /
     port: http
+
+# -- Configure a startup probe for the pod
+startupProbe: ~
 
 service:
   type: ClusterIP
