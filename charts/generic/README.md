@@ -1,6 +1,6 @@
 # generic
 
-![Version: 3.3.0](https://img.shields.io/badge/Version-3.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.4.0](https://img.shields.io/badge/Version-3.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -32,6 +32,22 @@ envValueFrom:
     secretKeyRef:
       name: secret-name
       key: user
+```
+
+### configMap
+
+If you want to pass yaml as a value, you need to specify it in block style:
+
+```yaml
+configMap:
+  enabled: true
+  data:
+    config.yml: |
+      foo: bar
+      map:
+        list:
+          - foo
+          - bar
 ```
 
 ## Upgrading
@@ -81,6 +97,10 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | command | string | `nil` |  |
+| configMap.data | object | `{}` | The data for the ConfigMap. Both keys and values need to be strings. |
+| configMap.enabled | bool | `false` | If a ConfigMap with configurable values should be created |
+| configMap.mountFiles | list | `[]` | Mounting of individual keys in the ConfigMap as files |
+| configMap.mountPath | string | `""` | If specified, the ConfigMap is mounted as a directory at this path |
 | deploymentStrategy | object | `{}` |  |
 | env | list | `[]` | Directly set environment variables |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |

@@ -50,6 +50,21 @@ labels: {}
 
 annotations: {}
 
+configMap:
+  # -- If a ConfigMap with configurable values should be created
+  enabled: false
+
+  # -- The data for the ConfigMap. Both keys and values need to be strings.
+  data: {}
+
+  # -- If specified, the ConfigMap is mounted as a directory at this path
+  mountPath: ""
+
+  # -- Mounting of individual keys in the ConfigMap as files
+  mountFiles: []
+    # - subPath: "config.yml"
+    #   mountPath: /app/config.yml
+
 persistence:
   enabled: false
   # -- Where the persistent volume is mounted
