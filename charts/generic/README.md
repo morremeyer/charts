@@ -1,6 +1,6 @@
 # generic
 
-![Version: 3.4.0](https://img.shields.io/badge/Version-3.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.4.1](https://img.shields.io/badge/Version-3.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -124,7 +124,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | persistence.enabled | bool | `false` |  |
-| persistence.mountPoint | string | `"/data"` | Where the persistent volume is mounted |
+| persistence.mountPath | string | `"/data"` | Where the persistent volume is mounted |
 | persistence.storage | string | `"100Mi"` |  |
 | persistence.storageClassName | string | `nil` | Set a storageClassName, otherwise the default class is used. |
 | podAnnotations | object | `{}` |  |
