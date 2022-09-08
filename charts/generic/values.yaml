@@ -67,6 +67,9 @@ configMap:
 
 persistence:
   enabled: false
+  # -- Annotations to add to the PersistentVolumeClaim
+  annotations: {}
+    # helm.sh/resource-policy: keep
   # -- Where the persistent volume is mounted
   mountPath: /data
   storage: 100Mi
