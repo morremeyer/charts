@@ -32,6 +32,9 @@ podSecurityContext: {}
 
 securityContext: {}
 
+# -- Set to true to enable host networking
+hostNetwork: false
+
 command: ~
 
 args: ~
