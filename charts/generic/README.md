@@ -1,6 +1,6 @@
 # generic
 
-![Version: 3.5.0](https://img.shields.io/badge/Version-3.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.6.0](https://img.shields.io/badge/Version-3.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -105,6 +105,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | env | list | `[]` | Directly set environment variables |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | fullnameOverride | string | `""` |  |
+| hostNetwork | bool | `false` | Set to true to enable host networking |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
 | image.tag | string | `"1.23.1"` |  |
