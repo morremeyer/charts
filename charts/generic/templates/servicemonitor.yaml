@@ -25,7 +25,7 @@ spec:
       {{- with .interval }}
       interval: {{ . }}
       {{- end }}
-      {{- with .scrapeTimeout  }}
+      {{- with .scrapeTimeout }}
       scrapeTimeout: {{ . }}
       {{- end }}
 {{- end }}
