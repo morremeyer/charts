@@ -1,8 +1,22 @@
 {
   "extends": ["config:base"],
+  "platformAutomerge": true,
   "pre-commit": {
     "enabled": true
   },
+  "packageRules": [
+    {
+      "description": "Automatically upgrade some dependencies",
+      "upgradeType": ["minor", "patch"],
+      "packageManagers": ["github-actions", "pre-commit"]
+    },
+    {
+      "description": "Automatically upgrade 'version' key dependencies in GitHub Actions",
+      "upgradeType": ["minor", "patch"],
+      "packageManagers": ["regex"],
+      "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"]
+    }
+  ],
   "regexManagers": [
     {
       "description": "Upgrade arbitrary dependencies with the key 'version' in a GitHub workflow file",
