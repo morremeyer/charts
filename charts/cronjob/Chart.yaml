@@ -2,7 +2,7 @@ apiVersion: v2
 name: cronjob
 description: Run jobs on a schedule
 type: application
-version: 2.1.1
+version: 3.0.0
 maintainers:
   - name: morremeyer
     email: charts@mor.re
