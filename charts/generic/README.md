@@ -1,6 +1,6 @@
 # generic
 
-![Version: 3.8.0](https://img.shields.io/badge/Version-3.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -10,6 +10,10 @@ A chart for generic applications. Use this if you need to deploy something witho
 | ---- | ------ | --- |
 | morremeyer |  |  |
 | ekeih |  |  |
+
+## Upgrading
+
+See [the upgrading instructions](UPGRADING.md) for upgrades with breaking changes.
 
 ## Complex values
 
@@ -50,39 +54,6 @@ configMap:
           - bar
 ```
 
-## Upgrading
-
-### To 3.0.0
-
-Support for CronJobs has been removed. If you used the `isCronjob: true` flag, please migrate to `morremeyer/cronjob` in version `2.0.0 <= x < 3.0.0`.
-
-:warning: If you need open ports on your CronJob pod, this is not supported in the cronjob chart. This is a design decision as CronJobs should not have any incoming traffic.
-
-The cronjob chart is almost fully compatible with all existing configuration you have (except for `ports`), you just have to do one migration step:
-
-1. Remove the `isCronjob: true` value
-
-### To 2.0.0
-
-The format for configuration environment variables has changed and is now less verbose.
-
-Old:
-
-```yaml
-env:
-  - name: ENV_NAME
-    value: test
-```
-
-New:
-
-```yaml
-env:
-  ENV_NAME: test
-```
-
-If you have environment variables set from ConfigMaps or Secrets, check out `envValueFrom`, which was [added in 1.1.0](https://github.com/morremeyer/charts/commit/a2b767f91b8f921bbd81abcb37648a6724ebb1db).
-
 ## Values
 
 | Key | Type | Default | Description |
@@ -120,8 +91,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | ingress.tls | list | `[]` |  |
 | initContainers | list | `[]` |  |
 | labels | object | `{}` |  |
-| livenessProbe.httpGet.path | string | `"/"` |  |
-| livenessProbe.httpGet.port | string | `"http"` |  |
+| livenessProbe.httpGet | object | `{"path":"/","port":"http"}` | Set `httpGet: ~` to deactivate |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | persistence.annotations | object | `{}` | Annotations to add to the PersistentVolumeClaim |
@@ -134,8 +104,7 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | ports[0].containerPort | int | `80` |  |
 | ports[0].name | string | `"http"` |  |
 | ports[0].protocol | string | `"TCP"` |  |
-| readinessProbe.httpGet.path | string | `"/"` |  |
-| readinessProbe.httpGet.port | string | `"http"` |  |
+| readinessProbe.httpGet | object | `{"path":"/","port":"http"}` | Set `httpGet: ~` to deactivate |
 | replicaCount | int | `1` | number of replicas |
 | resources | object | `{}` |  |
 | restartPolicy | string | `"Always"` |  |
@@ -143,11 +112,11 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | service.annotations | object | `{}` |  |
 | service.ip | string | `nil` |  |
 | service.loadBalancerIP | string | `nil` |  |
-| service.name | string | `"http"` | DEPRECATED: Use service.ports[*].name. Name of the port on the service. Ignored if service.ports is specified. |
-| service.port | int | `80` | DEPRECATED: Use service.ports[*].port. Port to use on the service. Ignored if service.ports is specified. |
-| service.ports | list | `[]` | List of ports. If you override it, you will have to explicitly add the default again. |
-| service.protocol | string | `"TCP"` | DEPRECATED: Use service.ports[*].protocol. Protocol to use for the target port. Ignored if service.ports is specified. |
-| service.targetPort | string | `"http"` | DEPRECATED: Use service.ports[*].targetPort. Target port on the pod. Ignored if service.ports is specified. |
+| service.ports | list | `[{"name":"http","port":80,"protocol":"TCP","targetPort":"http"}]` | List of ports. If you override it, you will have to explicitly add the default again. |
+| service.ports[0] | object | `{"name":"http","port":80,"protocol":"TCP","targetPort":"http"}` | Target port on the pod. |
+| service.ports[0].name | string | `"http"` | Name of the port on the service. |
+| service.ports[0].port | int | `80` | Port to use on the service. |
+| service.ports[0].protocol | string | `"TCP"` | Protocol to use for the target port. |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
