@@ -1,6 +1,6 @@
 # generic
 
-![Version: 3.6.0](https://img.shields.io/badge/Version-3.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.7.0](https://img.shields.io/badge/Version-3.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -8,7 +8,7 @@ A chart for generic applications. Use this if you need to deploy something witho
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| morremeyer | <charts@mor.re> |  |
+| morremeyer |  |  |
 | ekeih |  |  |
 
 ## Complex values
@@ -143,10 +143,11 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | service.annotations | object | `{}` |  |
 | service.ip | string | `nil` |  |
 | service.loadBalancerIP | string | `nil` |  |
-| service.name | string | `"http"` |  |
-| service.port | int | `80` |  |
-| service.protocol | string | `"TCP"` |  |
-| service.targetPort | string | `"http"` |  |
+| service.name | string | `"http"` | DEPRECATED: Use service.ports[*].name. Name of the port on the service. Ignored if service.ports is specified. |
+| service.port | int | `80` | DEPRECATED: Use service.ports[*].port. Port to use on the service. Ignored if service.ports is specified. |
+| service.ports | list | `[]` | List of ports. If you override it, you will have to explicitly add the default again. |
+| service.protocol | string | `"TCP"` | DEPRECATED: Use service.ports[*].protocol. Protocol to use for the target port. Ignored if service.ports is specified. |
+| service.targetPort | string | `"http"` | DEPRECATED: Use service.ports[*].targetPort. Target port on the pod. Ignored if service.ports is specified. |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
