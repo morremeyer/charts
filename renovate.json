@@ -7,14 +7,14 @@
   "packageRules": [
     {
       "description": "Automatically upgrade some dependencies",
-      "upgradeType": ["minor", "patch"],
-      "packageManagers": ["github-actions", "pre-commit"]
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchManagers": ["github-actions", "pre-commit"]
     },
     {
       "description": "Automatically upgrade 'version' key dependencies in GitHub Actions",
-      "upgradeType": ["minor", "patch"],
-      "packageManagers": ["regex"],
-      "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"]
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchManagers": ["regex"],
+      "matchPaths": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"]
     }
   ],
   "regexManagers": [
