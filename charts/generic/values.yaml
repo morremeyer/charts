@@ -85,11 +85,13 @@ ports:
     protocol: TCP
 
 livenessProbe:
+  # -- Set `httpGet: ~` to deactivate
   httpGet:
     path: /
     port: http
 
 readinessProbe:
+  # -- Set `httpGet: ~` to deactivate
   httpGet:
     path: /
     port: http
@@ -101,21 +103,16 @@ service:
   type: ClusterIP
   annotations: {}
 
-  # -- DEPRECATED: Use service.ports[*].targetPort. Target port on the pod. Ignored if service.ports is specified.
-  targetPort: http
-  # -- DEPRECATED: Use service.ports[*].protocol. Protocol to use for the target port. Ignored if service.ports is specified.
-  protocol: TCP
-  # -- DEPRECATED: Use service.ports[*].name. Name of the port on the service. Ignored if service.ports is specified.
-  name: http
-  # -- DEPRECATED: Use service.ports[*].port. Port to use on the service. Ignored if service.ports is specified.
-  port: 80
-
   # -- List of ports. If you override it, you will have to explicitly add the default again.
-  ports: []  # TODO: Add default port and documentation.
-    # - targetPort: http
-    #   protocol: TCP
-    #   name: http
-    #   port: 80
+  ports:
+      # -- Target port on the pod.
+    - targetPort: http
+      # -- Protocol to use for the target port.
+      protocol: TCP
+      # -- Name of the port on the service.
+      name: http
+      # -- Port to use on the service.
+      port: 80
 
   # Only for type ClusterIP
   ip: ~
