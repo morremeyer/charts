@@ -149,6 +149,24 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
+serviceMonitors:
+    # -- If a ServiceMonitor should be deployed. Needs the CRD installed
+  - enabled: false
+    # -- Name of the resource, defaults to the release name
+    name: ""
+    # -- Additional labels for the ServiceMonitor resource
+    additionalLabels: {}
+    # -- How often to scrape
+    interval: 1m
+    # -- Timeout for scraping
+    scrapeTimeout: 10s
+    # -- The port to scrape
+    port: http
+    # -- The path of the metrics endpoint
+    path: /metrics
+    # -- The label 'job' in prometheus. Defaults to the release name
+    jobLabel: ""
+
 nodeSelector: {}
 
 tolerations: []

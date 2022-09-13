@@ -1,6 +1,6 @@
 # generic
 
-![Version: 3.7.0](https://img.shields.io/badge/Version-3.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.8.0](https://img.shields.io/badge/Version-3.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -152,5 +152,13 @@ If you have environment variables set from ConfigMaps or Secrets, check out `env
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
+| serviceMonitors[0] | object | `{"additionalLabels":{},"enabled":false,"interval":"1m","jobLabel":"","name":"","path":"/metrics","port":"http","scrapeTimeout":"10s"}` | If a ServiceMonitor should be deployed. Needs the CRD installed |
+| serviceMonitors[0].additionalLabels | object | `{}` | Additional labels for the ServiceMonitor resource |
+| serviceMonitors[0].interval | string | `"1m"` | How often to scrape |
+| serviceMonitors[0].jobLabel | string | `""` | The label 'job' in prometheus. Defaults to the release name |
+| serviceMonitors[0].name | string | `""` | Name of the resource, defaults to the release name |
+| serviceMonitors[0].path | string | `"/metrics"` | The path of the metrics endpoint |
+| serviceMonitors[0].port | string | `"http"` | The port to scrape |
+| serviceMonitors[0].scrapeTimeout | string | `"10s"` | Timeout for scraping |
 | startupProbe | string | `nil` | Configure a startup probe for the pod |
 | tolerations | list | `[]` |  |
