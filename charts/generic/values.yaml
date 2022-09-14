@@ -129,12 +129,13 @@ ingress:
   annotations: {}
 
   hosts:
+      # -- host name to listen to
     - host: chart-example.local
       paths:
+          # -- URL path
         - path: /
-          backend:
-            serviceName: chart-example.local
-            servicePort: 80
+          # -- Name of the target port on the service
+          servicePortName: http
   tls: []
 
 resources: {}

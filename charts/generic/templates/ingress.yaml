@@ -1,10 +1,8 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "generic.fullname" . -}}
-{{- $svcPort := .Values.service.port -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ include "generic.fullname" . }}
   labels:
     {{- include "generic.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
@@ -32,19 +30,12 @@ spec:
         paths:
           {{- range .paths }}
           - path: {{ .path }}
-            {{- if $.Capabilities.APIVersions.Has "networking.k8s.io/v1" }}
             pathType: ImplementationSpecific
-            {{- end }}
             backend:
-              {{- if $.Capabilities.APIVersions.Has "networking.k8s.io/v1" }}
               service:
-                name: {{ $fullName }}
+                name: {{ include "generic.fullname" $ }}
                 port:
-                  number: {{ $svcPort }}
-              {{- else }}
-              serviceName: {{ $fullName }}
-              servicePort: {{ $svcPort }}
-              {{- end }}
+                  name: {{ .servicePortName }}
           {{- end }}
     {{- end }}
   {{- end }}
