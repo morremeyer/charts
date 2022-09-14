@@ -1,0 +1,45 @@
+name: Update kube-prometheus-stack CRDs
+
+on:
+  pull_request:
+    paths:
+      - charts/kube-prometheus-stack-crds/Chart.yaml
+
+jobs:
+  update-crds:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.2
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.REPO_PACKAGES_TOKEN }}
+
+      - name: Remove CRDs
+        run: rm charts/kube-prometheus-stack-crds/templates/*
+
+      - name: Get current chart version
+        id: chart_version
+        run: |
+          echo "::set-output name=CHECKOUT_REF::$(sed '/^version:/!d;s/version: //' charts/kube-prometheus-stack-crds/Chart.yaml)"
+
+      - name: Check out prometheus-community/helm-charts
+        uses: actions/checkout@v3.0.2
+        with:
+          repository: prometheus-community/helm-charts
+          ref: "kube-prometheus-stack-${{ steps.chart_version.outputs.CHECKOUT_REF }}"
+          path: kube-prometheus-stack-upstream
+
+      - name: Copy CRDs
+        run: cp kube-prometheus-stack-upstream/charts/kube-prometheus-stack/crds/* charts/kube-prometheus-stack-crds/templates/
+
+      - name: Remove kube-prometheus-stack upstream clone
+        run: rm -r kube-prometheus-stack-upstream
+
+      - name: Commit updated CRDs
+        uses: EndBug/add-and-commit@v9.1.0
+        with:
+          message: "chore(deps): update kube-prometheus-stack CRDs"
+          add: "charts/kube-prometheus-stack-crds/templates/*"
+          pull: "--rebase --autostash"
+          author_name: Morre's Bot
+          author_email: morremeyer-bot@maurice-meyer.de

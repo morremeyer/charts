@@ -2,9 +2,6 @@ name: Helm Docs
 
 on:
   pull_request:
-  push:
-    branches:
-      - main
 
 jobs:
   helm-docs:
@@ -13,6 +10,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
+          token: ${{ secrets.REPO_PACKAGES_TOKEN }}
 
       - uses: actions/setup-go@v3
         with:
@@ -26,11 +24,11 @@ jobs:
       - name: regenerate documentation
         run: $HOME/go/bin/helm-docs
 
-      # This is commented for now as it does not trigger new runs due to the push
-      # coming from an action
-      # - name: Commit updated docs
-      #   uses: EndBug/add-and-commit@v8
-      #   with:
-      #     message: "docs: regenerate chart README.md"
-      #     add: "charts/**/README.md"
-      #     pull: "--rebase --autostash"
+      - name: Commit updated docs
+        uses: EndBug/add-and-commit@v9.1.0
+        with:
+          message: "docs: regenerate chart README.md"
+          add: "charts/**/README.md"
+          pull: "--rebase --autostash"
+          author_name: Morre's Bot
+          author_email: morremeyer-bot@maurice-meyer.de
