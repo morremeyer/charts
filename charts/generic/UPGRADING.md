@@ -1,6 +1,56 @@
 # Upgrading
 
+## 3.8.0 to 5.0.0
+
+You must now set the `ingress.hosts[*].paths[*].servicePortName`. As with 4.0.0, all ports must be configured explicitly,
+therefore it is a deliberate change that you cannot set a service port number for an Ingress resource: Naming ports is a good practice.
+
+The `servicePortName` must be set to an `service.ports[*].name` to work.
+
+**If you do not use an Ingress, you do not need to do anything**
+
+Migration example:
+
+_Old_:
+
+```yaml
+service:
+  targetPort: http
+  protocol: TCP
+  name: http
+  port: 80
+
+ingress:
+  enabled: true
+  hosts:
+    - host: example.com
+      paths:
+        - path: /
+```
+
+_New_:
+
+```yaml
+service:
+  ports:
+    - targetPort: http
+      protocol: TCP
+      name: http
+      port: 80
+
+ingress:
+  enabled: true
+  hosts:
+    - host: example.com
+      paths:
+        - path: /
+          # The servicePortName must be set now
+          servicePortName: http
+```
+
 ## 3.8.0 to 4.0.0
+
+:warning: Release 4.0.0 has a configuration-breaking bug when using `ingress: true`. Please upgrade to 5.0.0 directly.
 
 ### Kubernetes Version
 

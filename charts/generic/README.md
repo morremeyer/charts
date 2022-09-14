@@ -1,6 +1,6 @@
 # generic
 
-![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 5.0.0](https://img.shields.io/badge/Version-5.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -84,10 +84,9 @@ configMap:
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `nil` | The ingressClassName for this Ingress resource |
 | ingress.enabled | bool | `false` |  |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths[0].backend.serviceName | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths[0].backend.servicePort | int | `80` |  |
-| ingress.hosts[0].paths[0].path | string | `"/"` |  |
+| ingress.hosts[0] | object | `{"host":"chart-example.local","paths":[{"path":"/","servicePortName":"http"}]}` | host name to listen to |
+| ingress.hosts[0].paths[0] | object | `{"path":"/","servicePortName":"http"}` | URL path |
+| ingress.hosts[0].paths[0].servicePortName | string | `"http"` | Name of the target port on the service |
 | ingress.tls | list | `[]` |  |
 | initContainers | list | `[]` |  |
 | labels | object | `{}` |  |
