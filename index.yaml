@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   backup:
   - apiVersion: v2
+    created: "2022-09-15T19:33:14.983752878Z"
+    description: Chart to back up PVCs with restic and regularly clean up the snapshots.
+    digest: 7fe30a7c1520aebcee1c2cd99fefae626362ffd9f639d8924f9aabbc7ccb6aca
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: backup
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/backup-3.0.0/backup-3.0.0.tgz
+    version: 3.0.0
+  - apiVersion: v2
     created: "2022-08-28T09:24:06.839869699Z"
     description: Chart to back up PVCs with restic and regularly clean up the snapshots.
     digest: e10fa4e12ca63754fd62b6532b7c789e93582bfa5e88e80b5257145ffbcedc75
@@ -197,6 +209,18 @@ entries:
     - https://github.com/morremeyer/charts/releases/download/backup-1.0.0/backup-1.0.0.tgz
     version: 1.0.0
   cronjob:
+  - apiVersion: v2
+    created: "2022-09-15T19:33:15.122770996Z"
+    description: Run jobs on a schedule
+    digest: 298a71bbc15412e1c8d5b1f125163b8908491ed6e5032a9ce6e8a196330a0605
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/cronjob-3.0.1/cronjob-3.0.1.tgz
+    version: 3.0.1
   - apiVersion: v2
     created: "2022-09-13T21:17:25.127800283Z"
     description: Run jobs on a schedule
@@ -1058,4 +1082,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-09-14T23:18:21.167610347Z"
+generated: "2022-09-15T19:33:15.123250008Z"
