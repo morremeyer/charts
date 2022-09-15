@@ -1,4 +1,4 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: {{ include "backup.fullname" . }}
@@ -118,4 +118,3 @@ spec:
           {{- if .Values.backupJob.additionalVolumes }}
             {{- toYaml .Values.backupJob.additionalVolumes | nindent 12 }}
           {{- end }}
-

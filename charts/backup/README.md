@@ -1,6 +1,6 @@
 # backup
 
-![Version: 2.10.0](https://img.shields.io/badge/Version-2.10.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Chart to back up PVCs with restic and regularly clean up the snapshots.
 
@@ -8,8 +8,12 @@ Chart to back up PVCs with restic and regularly clean up the snapshots.
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| morremeyer | <charts@mor.re> |  |
+| morremeyer |  |  |
 | ekeih |  |  |
+
+## Upgrades
+
+For upgrade instructions for breaking changes, see [UPGRADING.md](UPGRADING.md).
 
 ## Usage
 
