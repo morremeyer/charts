@@ -8,13 +8,17 @@
     {
       "description": "Automatically upgrade some dependencies",
       "matchUpdateTypes": ["minor", "patch"],
-      "matchManagers": ["github-actions", "pre-commit"]
+      "matchManagers": ["github-actions", "pre-commit"],
+      "automerge": true
     },
     {
       "description": "Automatically upgrade 'version' key dependencies in GitHub Actions",
       "matchUpdateTypes": ["minor", "patch"],
       "matchManagers": ["regex"],
-      "matchPaths": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"]
+      "matchPaths": [
+        "(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"
+      ],
+      "automerge": true
     },
     {
       "description": "Automerge all kube-prometheus-stack updates for the CRD chart",
