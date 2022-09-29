@@ -127,6 +127,8 @@ ingress:
   # -- The ingressClassName for this Ingress resource
   className: ~
   annotations: {}
+  # -- Additional labels for the ingress resource
+  additionalLabels: {}
 
   hosts:
       # -- host name to listen to
