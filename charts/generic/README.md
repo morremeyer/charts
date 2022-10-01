@@ -1,6 +1,6 @@
 # generic
 
-![Version: 5.2.0](https://img.shields.io/badge/Version-5.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 5.3.0](https://img.shields.io/badge/Version-5.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -73,6 +73,8 @@ configMap:
 | configMap.mountFiles | list | `[]` | Mounting of individual keys in the ConfigMap as files |
 | configMap.mountPath | string | `""` | If specified, the ConfigMap is mounted as a directory at this path |
 | deploymentStrategy | object | `{}` |  |
+| dnsConfig | object | `{}` | Optional DNS settings |
+| dnsPolicy | string | `nil` | Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true. |
 | env | list | `[]` | Directly set environment variables |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | fullnameOverride | string | `""` |  |

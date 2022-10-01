@@ -35,6 +35,12 @@ securityContext: {}
 # -- Set to true to enable host networking
 hostNetwork: false
 
+# -- Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true.
+dnsPolicy:
+
+# -- Optional DNS settings
+dnsConfig: {}
+
 command: ~
 
 args: ~
