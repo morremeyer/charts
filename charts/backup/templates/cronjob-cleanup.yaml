@@ -81,7 +81,7 @@ spec:
             resources:
               {{- toYaml . | nindent 14 }}
             {{- end }}
-          restartPolicy: {{ .Values.cleanupJob.restartPolicy }}
+          restartPolicy: Never
           {{- with .Values.cleanupJob.nodeSelector }}
           nodeSelector:
             {{- toYaml . | nindent 12 }}

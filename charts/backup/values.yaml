@@ -23,9 +23,6 @@ backupJob:
   # -- concurrencyPolicy for the backup Jobs
   concurrencyPolicy: Forbid
 
-  # -- restartPolicy for the backup Jobs
-  restartPolicy: OnFailure
-
   nodeSelector: {}
 
   tolerations: []
@@ -96,9 +93,6 @@ cleanupJob:
 
   # -- concurrencyPolicy for the cleanup Jobs
   concurrencyPolicy: Forbid
-
-  # -- restartPolicy for the cleanup Jobs
-  restartPolicy: OnFailure
 
   image:
     repository: restic/restic
