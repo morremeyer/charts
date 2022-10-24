@@ -1,6 +1,6 @@
 # backup
 
-![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.0.1](https://img.shields.io/badge/Version-3.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Chart to back up PVCs with restic and regularly clean up the snapshots.
 
@@ -61,7 +61,6 @@ The following table lists the configurable parameters of the chart and the defau
 | backupJob.init | object | `{"image":{"pullPolicy":"IfNotPresent","repository":"restic/restic","tag":"0.14.0"},"resources":{}}` | Configuration for the repository init container |
 | backupJob.init.resources | object | `{}` | resources for the init container |
 | backupJob.nodeSelector | object | `{}` |  |
-| backupJob.restartPolicy | string | `"OnFailure"` | restartPolicy for the backup Jobs |
 | backupJob.schedule | string | `"17 3 * * *"` | when to run backups |
 | backupJob.securityContext | object | `{}` |  |
 | backupJob.successfulJobsHistoryLimit | int | `3` | successfulJobsHistoryLimit for the backup Jobs |
@@ -81,7 +80,6 @@ The following table lists the configurable parameters of the chart and the defau
 | cleanupJob.keepYearly | int | `2` | number of yearly snapshots to keep |
 | cleanupJob.nodeSelector | object | `{}` |  |
 | cleanupJob.resources | object | `{}` | resources for the cleanup container |
-| cleanupJob.restartPolicy | string | `"OnFailure"` | restartPolicy for the cleanup Jobs |
 | cleanupJob.schedule | string | `"17 15 * * *"` | when to run the cleanup |
 | cleanupJob.securityContext | object | `{}` |  |
 | cleanupJob.successfulJobsHistoryLimit | int | `3` | successfulJobsHistoryLimit for the cleanup Jobs |

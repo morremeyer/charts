@@ -84,7 +84,7 @@ spec:
             {{- if .Values.backupJob.backup.additionalVolumeMounts }}
               {{- toYaml .Values.backupJob.backup.additionalVolumeMounts | nindent 14 }}
             {{- end }}
-          restartPolicy: {{ .Values.backupJob.restartPolicy }}
+          restartPolicy: Never
           {{- with .Values.backupJob.nodeSelector }}
           nodeSelector:
             {{- toYaml . | nindent 12 }}
