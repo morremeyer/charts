@@ -1,6 +1,6 @@
 # backup
 
-![Version: 3.0.1](https://img.shields.io/badge/Version-3.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.1.0](https://img.shields.io/badge/Version-3.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Chart to back up PVCs with restic and regularly clean up the snapshots.
 
@@ -65,6 +65,7 @@ The following table lists the configurable parameters of the chart and the defau
 | backupJob.securityContext | object | `{}` |  |
 | backupJob.successfulJobsHistoryLimit | int | `3` | successfulJobsHistoryLimit for the backup Jobs |
 | backupJob.tolerations | list | `[]` |  |
+| cleanupJob.additionalVolumeMounts | list | `[]` | Additional volumes to mount to the restic container, e.g. to backup hostPaths. |
 | cleanupJob.affinity | object | `{}` |  |
 | cleanupJob.args | list | `[]` | arguments for the cleanup. **Automatically generated, only set when necessary** |
 | cleanupJob.command | string | `nil` | command for the cleanup. Defaults to '/usr/bin/restic' by the upstream container. |
@@ -91,3 +92,5 @@ The following table lists the configurable parameters of the chart and the defau
 | pvc | string | `nil` |  |
 | repo | string | `nil` | The repository location |
 | secretName | string | `"backup-secret"` | The secret that all containers load their environment from. See https://restic.readthedocs.io/en/latest/040_backup.html#environment-variables for variables. |
+| sftpConfig.knownHosts | list | `[]` | Deployed as ConfigMap and mounted to /etc/ssh/ssh_known_hosts |
+| sftpConfig.privateKeys.existingSecret | string | `nil` | Mounted to /root/.ssh/ |

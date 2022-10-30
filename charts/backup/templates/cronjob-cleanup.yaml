@@ -34,12 +34,31 @@ spec:
             args:
               - -c
               - "restic -r {{ .Values.repo }} unlock"
+            {{- with .Values.cleanupJob.env }}
+            env:
+              {{- toYaml . | nindent 14}}
+            {{- end }}
             envFrom:
               - secretRef:
                   name: {{ .Values.secretName }}
             {{- with .Values.cleanupJob.resources }}
             resources:
               {{- toYaml . | nindent 14 }}
+            {{- end }}
+            {{- if or .Values.cleanupJob.additionalVolumeMounts .Values.sftpConfig.knownHosts .Values.sftpConfig.privateKeys.existingSecret}}
+            volumeMounts:
+            {{- if .Values.sftpConfig.knownHosts }}
+              - mountPath: "/etc/ssh/ssh_known_hosts"
+                name: sftp-known-hosts
+                subPath: known_hosts
+            {{- end }}
+            {{- if .Values.sftpConfig.privateKeys.existingSecret }}
+              - mountPath: "/root/.ssh"
+                name: sftp-private-keys
+            {{- end }}
+            {{- if .Values.cleanupJob.additionalVolumeMounts }}
+              {{- toYaml .Values.cleanupJob.additionalVolumeMounts | nindent 14 }}
+            {{- end }}
             {{- end }}
           containers:
           - name: cleanup
@@ -77,9 +96,28 @@ spec:
             envFrom:
               - secretRef:
                   name: {{ .Values.secretName }}
+            {{- with .Values.cleanupJob.env }}
+            env:
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
             {{- with .Values.cleanupJob.resources }}
             resources:
               {{- toYaml . | nindent 14 }}
+            {{- end }}
+            {{- if or .Values.cleanupJob.additionalVolumeMounts .Values.sftpConfig.knownHosts .Values.sftpConfig.privateKeys.existingSecret}}
+            volumeMounts:
+            {{- if .Values.sftpConfig.knownHosts }}
+              - mountPath: "/etc/ssh/ssh_known_hosts"
+                name: sftp-known-hosts
+                subPath: known_hosts
+            {{- end }}
+            {{- if .Values.sftpConfig.privateKeys.existingSecret }}
+              - mountPath: "/root/.ssh/"
+                name: sftp-private-keys
+            {{- end }}
+            {{- if .Values.cleanupJob.additionalVolumeMounts }}
+              {{- toYaml .Values.cleanupJob.additionalVolumeMounts | nindent 14 }}
+            {{- end }}
             {{- end }}
           restartPolicy: Never
           {{- with .Values.cleanupJob.nodeSelector }}
@@ -102,5 +140,22 @@ spec:
           {{- with .Values.cleanupJob.tolerations }}
           tolerations:
             {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if or .Values.cleanupJob.additionalVolumes .Values.sftpConfig.knownHosts .Values.sftpConfig.privateKeys.existingSecret }}
+          volumes:
+          {{- if .Values.sftpConfig.knownHosts }}
+            - name: sftp-known-hosts
+              configMap:
+                name: {{ include "backup.fullname" . }}-known-hosts
+          {{- end }}
+          {{- if .Values.sftpConfig.privateKeys.existingSecret }}
+            - name: sftp-private-keys
+              secret:
+                secretName: {{ .Values.sftpConfig.privateKeys.existingSecret }}
+                defaultMode: 0400
+          {{- end }}
+          {{- if .Values.cleanupJob.additionalVolumes }}
+            {{- toYaml .Values.cleanupJob.additionalVolumes | nindent 12 }}
+          {{- end }}
           {{- end }}
 {{- end }}
