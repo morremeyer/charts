@@ -44,7 +44,7 @@ spec:
             resources:
               {{- toYaml . | nindent 14 }}
             {{- end }}
-            {{- if or .Values.backupJob.backup.additionalVolumeMounts .Values.sftpConfig.knownHosts .Values.sftpConfig.privateKeys.existingSecret }}
+            {{- if or .Values.sftpConfig.knownHosts .Values.sftpConfig.privateKeys.existingSecret }}
             volumeMounts:
             {{- if .Values.sftpConfig.knownHosts }}
               - mountPath: "/etc/ssh/ssh_known_hosts"
@@ -54,9 +54,6 @@ spec:
             {{- if .Values.sftpConfig.privateKeys.existingSecret }}
               - mountPath: "/root/.ssh"
                 name: sftp-private-keys
-            {{- end }}
-            {{- if .Values.backupJob.backup.additionalVolumeMounts }}
-              {{- toYaml .Values.backupJob.backup.additionalVolumeMounts | nindent 14 }}
             {{- end }}
             {{- end }}
           containers:
