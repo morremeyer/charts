@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.0.1](https://img.shields.io/badge/Version-3.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.0.2](https://img.shields.io/badge/Version-3.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -8,7 +8,8 @@ Run jobs on a schedule
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| morremeyer | <charts@mor.re> |  |
+| morremeyer |  |  |
+| ekeih |  |  |
 
 ## Upgrades
 
