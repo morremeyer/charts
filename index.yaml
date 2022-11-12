@@ -234,6 +234,18 @@ entries:
     version: 1.0.0
   cronjob:
   - apiVersion: v2
+    created: "2022-11-12T14:40:14.262102673Z"
+    description: Run jobs on a schedule
+    digest: 3a2872884960cb41ef7c30acb702bfda687cd0e21dd773c441c25e6a7e1cfbfa
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/cronjob-3.0.3/cronjob-3.0.3.tgz
+    version: 3.0.3
+  - apiVersion: v2
     created: "2022-11-02T16:36:23.162506826Z"
     description: Run jobs on a schedule
     digest: fbbf2e1fd56459060793c00e17c926f53d3dbc9330d3195814606cc808c9a5d1
@@ -1421,4 +1433,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-11-11T09:40:16.255510935Z"
+generated: "2022-11-12T14:40:14.262625402Z"
