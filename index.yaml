@@ -427,6 +427,19 @@ entries:
     version: 1.0.1
   generic:
   - apiVersion: v2
+    created: "2022-11-20T12:32:42.073921892Z"
+    description: A chart for generic applications. Use this if you need to deploy
+      something without wanting to build a fully fledged new helm chart.
+    digest: 9c5359e924849a3d33118779162a64b0f15190259b5148ad477046e2b93d7dc8
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: generic
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/generic-5.4.0/generic-5.4.0.tgz
+    version: 5.4.0
+  - apiVersion: v2
     created: "2022-10-24T13:59:50.789011451Z"
     description: A chart for generic applications. Use this if you need to deploy
       something without wanting to build a fully fledged new helm chart.
@@ -1466,4 +1479,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-11-19T13:50:31.793357838Z"
+generated: "2022-11-20T12:32:42.074389388Z"
