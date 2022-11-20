@@ -1,6 +1,6 @@
 # generic
 
-![Version: 5.3.1](https://img.shields.io/badge/Version-5.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 5.4.0](https://img.shields.io/badge/Version-5.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -101,7 +101,8 @@ configMap:
 | persistence.mountPath | string | `"/data"` | Where the persistent volume is mounted |
 | persistence.storage | string | `"100Mi"` |  |
 | persistence.storageClassName | string | `nil` | Set a storageClassName, otherwise the default class is used. |
-| podAnnotations | object | `{}` |  |
+| podAnnotations | object | `{}` | annotations to set for the Pods |
+| podLabels | object | `{}` | labels to add to the Pods |
 | podSecurityContext | object | `{}` |  |
 | ports[0].containerPort | int | `80` |  |
 | ports[0].name | string | `"http"` |  |
