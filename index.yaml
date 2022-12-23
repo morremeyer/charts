@@ -877,6 +877,17 @@ entries:
     version: 1.0.0
   kube-prometheus-stack-crds:
   - apiVersion: v2
+    created: "2022-12-23T14:19:07.910650555Z"
+    description: Deploys the kube-prometheus-stack CRDs to your cluster
+    digest: c4104a4649dc2ac908373af782c39278485204fe63aa2c9e497a5ac72c396612
+    maintainers:
+    - name: morremeyer
+    name: kube-prometheus-stack-crds
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/kube-prometheus-stack-crds-43.1.4/kube-prometheus-stack-crds-43.1.4.tgz
+    version: 43.1.4
+  - apiVersion: v2
     created: "2022-12-22T11:49:45.966006155Z"
     description: Deploys the kube-prometheus-stack CRDs to your cluster
     digest: e98af4b034366094d7c0992976adb379b10b99ce90e6d9763dec5fce8b430aab
@@ -1645,4 +1656,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-22T11:49:45.966640205Z"
+generated: "2022-12-23T14:19:07.911212658Z"
