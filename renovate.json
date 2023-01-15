@@ -32,6 +32,10 @@
       "matchDepTypes": ["action"],
       "rangeStrategy": "pin",
       "pinDigests": true
+    },
+    {
+      "matchPackageNames": ["hetznercloud/hcloud-cloud-controller-manager"],
+      "extractVersion": "^v(?<version>)"
     }
   ],
   "regexManagers": [
@@ -56,6 +60,18 @@
       "fileMatch": ["^charts/kube-prometheus-stack-crds/Chart.yaml$"],
       "matchStrings": [
         "# renovate datasource=(?<datasource>.*?)\\sregistryUrl=(?<registryUrl>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)"
+      ]
+    },
+    {
+      "description": "Upgrade helm chart version for hetzner ccm in lockstep with the actual chart",
+      "fileMatch": [
+        "^charts/hcloud-ccm-networks/Chart.yaml$",
+        ".github/workflows/update-hcloud-cloud-controller-manager.yml"
+      ],
+      "matchStrings": [
+        "# renovate datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)",
+        "# renovate datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sappVersion: (?<currentValue>.*)",
+        "# renovate datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s+export\\s+VERSION=\"(?<currentValue>.*)\""
       ]
     },
     {
