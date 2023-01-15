@@ -10,7 +10,7 @@ jobs:
   update-crds:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.REPO_PACKAGES_TOKEN }}
@@ -26,7 +26,7 @@ jobs:
           sed -i 's/--cluster-cidr=.*"/--cluster-cidr={{ .Values.clusterCidr }}"/g' charts/hcloud-ccm-networks/templates/ccm-networks.yaml
 
       - name: Commit updated chart
-        uses: EndBug/add-and-commit@v9.1.1
+        uses: EndBug/add-and-commit@61a88be553afe4206585b31aa72387c64295d08b # v9.1.1
         with:
           message: "chore(deps): update hcloud-ccm-networks"
           add: "charts/hcloud-ccm-networks/*"
