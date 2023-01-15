@@ -64,7 +64,7 @@ spec:
             - "--leader-elect=false"
             - "--allow-untagged-cloud"
             - "--allocate-node-cidrs=true"
-            - "--cluster-cidr=10.244.0.0/16"
+            - "--cluster-cidr={{ .Values.clusterCidr }}"
           resources:
             requests:
               cpu: 100m
