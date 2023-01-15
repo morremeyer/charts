@@ -26,6 +26,12 @@
       "description": "Automerge all kube-prometheus-stack updates for the CRD chart",
       "matchPackageNames": ["kube-prometheus-stack"],
       "automerge": true
+    },
+    {
+      "description": "Pin GitHub action digests",
+      "matchDepTypes": ["action"],
+      "rangeStrategy": "pin",
+      "pinDigests": true
     }
   ],
   "regexManagers": [
