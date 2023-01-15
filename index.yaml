@@ -888,6 +888,23 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/generic-1.0.0/generic-1.0.0.tgz
     version: 1.0.0
+  hcloud-ccm-networks:
+  - apiVersion: v2
+    appVersion: 1.13.1
+    created: "2023-01-15T21:30:01.5130746Z"
+    description: Deploys the hcloud-ccm
+    digest: 1e8b378984e1d6b7ca1f3adcccc3639dab6ccc8fb558422928d6be1b8446814c
+    home: https://github.com/morremeyer/charts
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: hcloud-ccm-networks
+    sources:
+    - https://github.com/hetznercloud/hcloud-cloud-controller-manager
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/hcloud-ccm-networks-1.13.1/hcloud-ccm-networks-1.13.1.tgz
+    version: 1.13.1
   kube-prometheus-stack-crds:
   - apiVersion: v2
     created: "2023-01-14T14:32:41.043064775Z"
@@ -1724,4 +1741,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2023-01-14T14:32:41.043621781Z"
+generated: "2023-01-15T21:30:01.513365203Z"
