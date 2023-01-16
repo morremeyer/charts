@@ -1,0 +1,2 @@
+# -- The reclaimPolicy for the volume. Must be Retain (keep PV after PVC is deleted) or Delete (delete PV when PVC is deleted)
+reclaimPolicy: Retain
