@@ -66,10 +66,12 @@
       ]
     },
     {
-      "description": "Upgrade helm chart version for hetzner ccm in lockstep with the actual chart",
+      "description": "Upgrade helm chart version for hetzner ccm and csi-driver in lockstep with the upstream releases",
       "fileMatch": [
         "^charts/hcloud-ccm-networks/Chart.yaml$",
-        ".github/workflows/update-hcloud-cloud-controller-manager.yml"
+        ".github/workflows/update-hcloud-cloud-controller-manager.yml",
+        "^charts/hcloud-csi-driver/Chart.yaml$",
+        ".github/workflows/update-hcloud-csi-driver.yml"
       ],
       "matchStrings": [
         "# renovate datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)",
