@@ -1,0 +1,35 @@
+name: Update hcloud-csi-driver
+
+on:
+  pull_request:
+    paths:
+      - charts/hcloud-csi-driver/Chart.yaml
+      - .github/workflows/update-hcloud-csi-driver.yml
+
+jobs:
+  update-crds:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.REPO_PACKAGES_TOKEN }}
+
+      - name: Remove files
+        run: rm charts/hcloud-csi-driver/templates/*
+
+      - name: Download new files
+        run: |
+          # renovate datasource=github-releases depName=hetznercloud/csi-driver
+          export VERSION="2.0.1"
+          curl -Lo charts/hcloud-csi-driver/templates/hcloud-csi.yaml https://github.com/hetznercloud/csi-driver/raw/v${VERSION}/deploy/kubernetes/hcloud-csi.yml
+          sed -i '/^provisioner: csi.hetzner.cloud/a reclaimPolicy: "{{ .Values.reclaimPolicy }}"' charts/hcloud-csi-driver/templates/hcloud-csi.yaml
+
+      - name: Commit updated chart
+        uses: EndBug/add-and-commit@61a88be553afe4206585b31aa72387c64295d08b # v9.1.1
+        with:
+          message: "chore(deps): update hcloud-csi-driver"
+          add: "charts/hcloud-csi-driver/*"
+          pull: "--rebase --autostash"
+          author_name: Morre's Bot
+          author_email: morremeyer-bot@maurice-meyer.de

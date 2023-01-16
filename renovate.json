@@ -34,7 +34,10 @@
       "pinDigests": true
     },
     {
-      "matchPackageNames": ["hetznercloud/hcloud-cloud-controller-manager"],
+      "matchPackageNames": [
+        "hetznercloud/hcloud-cloud-controller-manager",
+        "hetznercloud/csi-driver"
+      ],
       "extractVersion": "^v(?<version>.*)$"
     }
   ],
