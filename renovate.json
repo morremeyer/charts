@@ -35,7 +35,7 @@
     },
     {
       "matchPackageNames": ["hetznercloud/hcloud-cloud-controller-manager"],
-      "extractVersion": "^v(?<version>)"
+      "extractVersion": "^v(?<version>.*)$"
     }
   ],
   "regexManagers": [
