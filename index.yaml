@@ -945,6 +945,23 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/hcloud-ccm-networks-1.13.1/hcloud-ccm-networks-1.13.1.tgz
     version: 1.13.1
+  hcloud-csi-driver:
+  - apiVersion: v2
+    appVersion: 2.0.1
+    created: "2023-01-16T20:15:12.466788268Z"
+    description: Deploys the hcloud-csi-driver
+    digest: 10611c4efa02be6fc28f1ff3909c30f33a8c1e533b28cb31859aeee448934b56
+    home: https://github.com/morremeyer/charts
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: hcloud-csi-driver
+    sources:
+    - https://github.com/hetznercloud/csi-driver
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/hcloud-csi-driver-2.0.1/hcloud-csi-driver-2.0.1.tgz
+    version: 2.0.1
   kube-prometheus-stack-crds:
   - apiVersion: v2
     created: "2023-01-16T11:56:13.002084245Z"
@@ -1803,4 +1820,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2023-01-16T11:56:13.002407551Z"
+generated: "2023-01-16T20:15:12.467030567Z"
