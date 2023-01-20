@@ -24,7 +24,11 @@
     },
     {
       "description": "Automerge all kube-prometheus-stack updates for the CRD chart",
-      "matchPackageNames": ["kube-prometheus-stack"],
+      "matchPackageNames": [
+        "kube-prometheus-stack",
+        "hetznercloud/hcloud-cloud-controller-manager",
+        "hetznercloud/csi-driver"
+      ],
       "automerge": true
     },
     {
