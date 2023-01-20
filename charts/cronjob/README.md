@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.0.5](https://img.shields.io/badge/Version-3.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.1.0](https://img.shields.io/badge/Version-3.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -62,6 +62,9 @@ configMap:
 | additionalVolumes | list | `[]` |  |
 | affinity | object | `{}` | affinity object for the pod |
 | annotations | object | `{}` |  |
+| apiAccess | object | `{"enabled":false,"rules":[]}` | Configuration for access to the Kubernetes API |
+| apiAccess.enabled | bool | `false` | When set to true, a Role and RoleBinding are deployed that give access with the rules defined in apiAccess.rules |
+| apiAccess.rules | list | `[]` | Rules for the API access of the ServiceAccount used by the CronJob pods. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information |
 | args | list | `[]` | arguments to pass to the command or binary being run |
 | command | list | `[]` | the command or binary to run |
 | configMap.data | object | `{}` | The data for the ConfigMap. Both keys and values need to be strings. |
