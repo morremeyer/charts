@@ -98,3 +98,12 @@ tolerations: []
 
 # -- affinity object for the pod
 affinity: {}
+
+# -- Configuration for access to the Kubernetes API
+apiAccess:
+
+  # -- When set to true, a Role and RoleBinding are deployed that give access with the rules defined in apiAccess.rules
+  enabled: false
+
+  # -- Rules for the API access of the ServiceAccount used by the CronJob pods. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information
+  rules: []
