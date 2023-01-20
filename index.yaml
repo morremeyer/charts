@@ -947,6 +947,22 @@ entries:
     version: 1.13.1
   hcloud-csi-driver:
   - apiVersion: v2
+    appVersion: 2.1.1
+    created: "2023-01-20T15:24:59.353332483Z"
+    description: Deploys the hcloud-csi-driver
+    digest: ce10fd3f5467f73ef0e90119d80d650f700e76764e8f0f3a86bae75ae4127356
+    home: https://github.com/morremeyer/charts
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: hcloud-csi-driver
+    sources:
+    - https://github.com/hetznercloud/csi-driver
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/hcloud-csi-driver-2.1.1/hcloud-csi-driver-2.1.1.tgz
+    version: 2.1.1
+  - apiVersion: v2
     appVersion: 2.1.0
     created: "2023-01-16T20:31:13.032805107Z"
     description: Deploys the hcloud-csi-driver
@@ -1847,4 +1863,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2023-01-17T01:04:34.786635546Z"
+generated: "2023-01-20T15:24:59.353678981Z"
