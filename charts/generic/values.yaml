@@ -36,6 +36,9 @@ podSecurityContext: {}
 
 securityContext: {}
 
+# -- How long the pod may take to terminate before it is killed by the kubelet
+terminationGracePeriodSeconds: 30
+
 # -- Set to true to enable host networking
 hostNetwork: false
 
