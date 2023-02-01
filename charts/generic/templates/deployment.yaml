@@ -63,6 +63,7 @@ spec:
       {{- with .Values.initContainers }}
       initContainers: {{ toYaml . | nindent 8 }}
       {{- end }}
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       containers:
         - name: {{ .Chart.Name }}
           {{- with .Values.securityContext }}

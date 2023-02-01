@@ -1,6 +1,6 @@
 # generic
 
-![Version: 5.4.1](https://img.shields.io/badge/Version-5.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 5.5.0](https://img.shields.io/badge/Version-5.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -133,4 +133,5 @@ configMap:
 | serviceMonitors[0].port | string | `"http"` | The port to scrape |
 | serviceMonitors[0].scrapeTimeout | string | `"10s"` | Timeout for scraping |
 | startupProbe | string | `nil` | Configure a startup probe for the pod |
+| terminationGracePeriodSeconds | int | `30` | How long the pod may take to terminate before it is killed by the kubelet |
 | tolerations | list | `[]` |  |
