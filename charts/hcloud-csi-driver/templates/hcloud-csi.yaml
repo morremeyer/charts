@@ -168,7 +168,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: hcloud-csi
+    app: hcloud-csi-controller
   name: hcloud-csi-controller-metrics
   namespace: kube-system
 spec:
@@ -212,12 +212,12 @@ spec:
       containers:
       - args:
         - --default-fstype=ext4
-        image: k8s.gcr.io/sig-storage/csi-attacher:v4.1.0
+        image: registry.k8s.io/sig-storage/csi-attacher:v4.1.0
         name: csi-attacher
         volumeMounts:
         - mountPath: /run/csi
           name: socket-dir
-      - image: k8s.gcr.io/sig-storage/csi-resizer:v1.7.0
+      - image: registry.k8s.io/sig-storage/csi-resizer:v1.7.0
         name: csi-resizer
         volumeMounts:
         - mountPath: /run/csi
@@ -225,7 +225,7 @@ spec:
       - args:
         - --feature-gates=Topology=true
         - --default-fstype=ext4
-        image: k8s.gcr.io/sig-storage/csi-provisioner:v3.4.0
+        image: registry.k8s.io/sig-storage/csi-provisioner:v3.4.0
         name: csi-provisioner
         volumeMounts:
         - mountPath: /run/csi
@@ -249,7 +249,7 @@ spec:
             secretKeyRef:
               key: token
               name: hcloud
-        image: hetznercloud/hcloud-csi-driver:2.1.1
+        image: hetznercloud/hcloud-csi-driver:2.2.0
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 5
@@ -269,7 +269,7 @@ spec:
         volumeMounts:
         - mountPath: /run/csi
           name: socket-dir
-      - image: k8s.gcr.io/sig-storage/livenessprobe:v2.9.0
+      - image: registry.k8s.io/sig-storage/livenessprobe:v2.9.0
         imagePullPolicy: Always
         name: liveness-probe
         volumeMounts:
@@ -308,7 +308,7 @@ spec:
       containers:
       - args:
         - --kubelet-registration-path=/var/lib/kubelet/plugins/csi.hetzner.cloud/socket
-        image: k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.7.0
+        image: registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.7.0
         name: csi-node-driver-registrar
         volumeMounts:
         - mountPath: /run/csi
@@ -324,7 +324,7 @@ spec:
           value: 0.0.0.0:9189
         - name: ENABLE_METRICS
           value: "true"
-        image: hetznercloud/hcloud-csi-driver:2.1.1
+        image: hetznercloud/hcloud-csi-driver:2.2.0
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 5
@@ -351,7 +351,7 @@ spec:
           name: plugin-dir
         - mountPath: /dev
           name: device-dir
-      - image: k8s.gcr.io/sig-storage/livenessprobe:v2.9.0
+      - image: registry.k8s.io/sig-storage/livenessprobe:v2.9.0
         imagePullPolicy: Always
         name: liveness-probe
         volumeMounts:
