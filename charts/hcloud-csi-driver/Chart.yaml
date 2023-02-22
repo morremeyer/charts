@@ -9,9 +9,9 @@ sources:
 type: application
 
 # renovate datasource=github-releases depName=hetznercloud/csi-driver
-version: 2.1.1
+version: 2.2.0
 # renovate datasource=github-releases depName=hetznercloud/csi-driver
-appVersion: 2.1.1
+appVersion: 2.2.0
 
 maintainers:
   - name: morremeyer
