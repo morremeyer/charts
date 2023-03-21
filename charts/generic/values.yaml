@@ -52,6 +52,9 @@ command: ~
 
 args: ~
 
+# -- Directly set envFrom config
+envFrom: []
+
 # -- Directly set environment variables
 env: []
 

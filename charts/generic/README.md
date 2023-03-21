@@ -1,6 +1,6 @@
 # generic
 
-![Version: 5.5.0](https://img.shields.io/badge/Version-5.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 5.6.0](https://img.shields.io/badge/Version-5.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -24,6 +24,16 @@ You can set environment variables directly with:
 ```yaml
 env:
   ENV_VARIABLE_NAME: "value"
+```
+
+### envFrom
+
+This enables you to load a complete ConfigMap or Secret into the env.
+
+```yaml
+envFrom:
+  - configMapRef:
+      name: special-config
 ```
 
 ### envValueFrom
@@ -76,6 +86,7 @@ configMap:
 | dnsConfig | object | `{}` | Optional DNS settings |
 | dnsPolicy | string | `nil` | Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true. |
 | env | list | `[]` | Directly set environment variables |
+| envFrom | list | `[]` | Directly set envFrom config |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | fullnameOverride | string | `""` |  |
 | hostNetwork | bool | `false` | Set to true to enable host networking |
