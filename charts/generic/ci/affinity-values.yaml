@@ -1,0 +1,22 @@
+enableNodeSpreadPodAntiAffinity: true
+enableZoneSpreadPodAntiAffinity: true
+
+additionalPreferredPodAntiAffinity:
+  - weight: 100
+    podAffinityTerm:
+      labelSelector:
+        matchLabels:
+          app.kubernetes.io/component: some-app
+          app.kubernetes.io/name: release-name
+      topologyKey: kubernetes.io/hostname
+
+affinity:
+  podAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 70
+        podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/component: some-other-component
+              app.kubernetes.io/name: nextcloud
+          topologyKey: kubernetes.io/hostname

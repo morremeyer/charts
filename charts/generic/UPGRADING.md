@@ -1,5 +1,66 @@
 # Upgrading
 
+## 5.6.0 to 6.0.0
+
+With this release, a `PodAntiAffinity` is deployed by default, spreading pods across nodes. This is configurable with the `enableNodeSpreadPodAntiAffinity` value.
+
+The release also introduces a `enableZoneSpreadPodAntiAffinity` value, which is disabled by default. When you enable it, pods will also be spread across zones by the `topology.kubernetes.io/zone` topology key.
+
+**If you do not use the `affinity` value, no changes are needed.**
+
+If you do use the `affinity` value **and** you do have `podAntiAffinity` terms that are `preferredDuringSchedulingIgnoredDuringExecution`, you need to migrate your configuration as follows.
+
+All other affinities can stay in the `affinity` value. If you specify any PodAntiAffinities that are `preferredDuringSchedulingIgnoredDuringExecution` in the `affinity` value, the default and additional policies specified will be overwritten.
+
+Migration example:
+
+_Old_:
+
+```yaml
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 50
+        podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/component: app
+              app.kubernetes.io/name: nextcloud
+          topologyKey: topology.kubernetes.io/zone
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/component: app
+              app.kubernetes.io/name: nextcloud
+          topologyKey: kubernetes.io/hostname
+      - weight: 70
+        podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/component: some-other-component
+              app.kubernetes.io/name: nextcloud
+          topologyKey: kubernetes.io/hostname
+```
+
+_New_:
+
+With this, the zone and node distribution are handled by enabling both default policies.
+Then, the additional PodAntiAffinity is migrated to `additionalPreferredPodAntiAffinity`.
+
+```yaml
+enableZoneSpreadPodAntiAffinity: true
+
+additionalPreferredPodAntiAffinity:
+  - weight: 70
+    podAffinityTerm:
+      labelSelector:
+        matchLabels:
+          app.kubernetes.io/component: some-other-component
+          app.kubernetes.io/name: nextcloud
+      topologyKey: kubernetes.io/hostname
+```
+
 ## 3.8.0 to 5.0.0
 
 You must now set the `ingress.hosts[*].paths[*].servicePortName`. As with 4.0.0, all ports must be configured explicitly,

@@ -187,4 +187,14 @@ nodeSelector: {}
 
 tolerations: []
 
+# -- Enable an AntiAffinity between pods, spreading them across nodes if possible with a priority of 100.
+enableNodeSpreadPodAntiAffinity: true
+
+# -- Enable an AntiAffinity between pods, spreading them across zones if possible with a priority of 50.
+enableZoneSpreadPodAntiAffinity: false
+
+# -- Additional preferredDuringSchedulingIgnoredDuringExecution podAntiAffinity terms
+additionalPreferredPodAntiAffinity: {}
+
+# -- Additional affinity terms. **Do not** specify PodAntiAffinities with preferredDuringSchedulingIgnoredDuringExecution here, these go to `additionalPreferredPodAntiAffinity`.
 affinity: {}

@@ -1,6 +1,6 @@
 # generic
 
-![Version: 5.6.0](https://img.shields.io/badge/Version-5.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 6.0.0](https://img.shields.io/badge/Version-6.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -68,9 +68,10 @@ configMap:
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| additionalPreferredPodAntiAffinity | object | `{}` | Additional preferredDuringSchedulingIgnoredDuringExecution podAntiAffinity terms |
 | additionalVolumeMounts | list | `[]` |  |
 | additionalVolumes | list | `[]` |  |
-| affinity | object | `{}` |  |
+| affinity | object | `{}` | Additional affinity terms. **Do not** specify PodAntiAffinities with preferredDuringSchedulingIgnoredDuringExecution here, these go to `additionalPreferredPodAntiAffinity`. |
 | annotations | object | `{}` |  |
 | args | string | `nil` |  |
 | autoscaling.enabled | bool | `false` |  |
@@ -85,6 +86,8 @@ configMap:
 | deploymentStrategy | object | `{}` |  |
 | dnsConfig | object | `{}` | Optional DNS settings |
 | dnsPolicy | string | `nil` | Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true. |
+| enableNodeSpreadPodAntiAffinity | bool | `true` | Enable an AntiAffinity between pods, spreading them across nodes if possible with a priority of 100. |
+| enableZoneSpreadPodAntiAffinity | bool | `false` | Enable an AntiAffinity between pods, spreading them across zones if possible with a priority of 50. |
 | env | list | `[]` | Directly set environment variables |
 | envFrom | list | `[]` | Directly set envFrom config |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
