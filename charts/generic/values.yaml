@@ -196,5 +196,5 @@ enableZoneSpreadPodAntiAffinity: false
 # -- Additional preferredDuringSchedulingIgnoredDuringExecution podAntiAffinity terms
 additionalPreferredPodAntiAffinity: {}
 
-# -- Additional affinity terms. **Do not** specify PodAntiAffinities with preferredDuringSchedulingIgnoredDuringExecution here, these go to `additionalPreferredPodAntiAffinity`.
+# -- Additional affinity terms. **Do not** specify PodAntiAffinities with preferredDuringSchedulingIgnoredDuringExecution here, these go to `additionalPreferredPodAntiAffinity`. All `requiredDuringScheduling` affinities need to be defined here.
 affinity: {}

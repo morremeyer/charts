@@ -71,7 +71,7 @@ configMap:
 | additionalPreferredPodAntiAffinity | object | `{}` | Additional preferredDuringSchedulingIgnoredDuringExecution podAntiAffinity terms |
 | additionalVolumeMounts | list | `[]` |  |
 | additionalVolumes | list | `[]` |  |
-| affinity | object | `{}` | Additional affinity terms. **Do not** specify PodAntiAffinities with preferredDuringSchedulingIgnoredDuringExecution here, these go to `additionalPreferredPodAntiAffinity`. |
+| affinity | object | `{}` | Additional affinity terms. **Do not** specify PodAntiAffinities with preferredDuringSchedulingIgnoredDuringExecution here, these go to `additionalPreferredPodAntiAffinity`. All `requiredDuringScheduling` affinities need to be defined here. |
 | annotations | object | `{}` |  |
 | args | string | `nil` |  |
 | autoscaling.enabled | bool | `false` |  |
