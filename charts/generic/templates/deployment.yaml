@@ -130,8 +130,40 @@ spec:
       {{- with .Values.nodeSelector }}
       nodeSelector: {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if or .Values.affinity .Values.additionalPreferredPodAntiAffinity .Values.enableNodeSpreadPodAntiAffinity .Values.enableZoneSpreadPodAntiAffinity }}
+      affinity:
+      {{- if or .Values.additionalPreferredPodAntiAffinity .Values.enableNodeSpreadPodAntiAffinity .Values.enableZoneSpreadPodAntiAffinity }}
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+      {{- if .Values.enableNodeSpreadPodAntiAffinity }}
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    {{- include "generic.labels" . | nindent 20 }}
+                    {{- with .Values.labels }}
+                    {{- toYaml . | nindent 20 }}
+                    {{- end }}
+                topologyKey: kubernetes.io/hostname
+      {{- end }}
+      {{- if .Values.enableZoneSpreadPodAntiAffinity }}
+            - weight: 50
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    {{- include "generic.labels" . | nindent 20 }}
+                    {{- with .Values.labels }}
+                    {{- toYaml . | nindent 20 }}
+                    {{- end }}
+                topologyKey: topology.kubernetes.io/zone
+      {{- end }}
+      {{- with .Values.additionalPreferredPodAntiAffinity }}
+      {{- toYaml . | nindent 12 }}
+      {{- end }}
+      {{- end }}
       {{- with .Values.affinity }}
-      affinity: {{- toYaml . | nindent 8 }}
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
       {{- end }}
       {{- with .Values.tolerations }}
       tolerations: {{- toYaml . | nindent 8 }}
