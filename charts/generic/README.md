@@ -1,6 +1,6 @@
 # generic
 
-![Version: 6.0.0](https://img.shields.io/badge/Version-6.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 6.1.0](https://img.shields.io/badge/Version-6.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -116,6 +116,9 @@ configMap:
 | persistence.storage | string | `"100Mi"` |  |
 | persistence.storageClassName | string | `nil` | Set a storageClassName, otherwise the default class is used. |
 | podAnnotations | object | `{}` | annotations to set for the Pods |
+| podDisruptionBudget.enabled | bool | `false` | Deploy a PodDisruptionBudget |
+| podDisruptionBudget.maxUnavailable | string | `""` | How many pods can be unvailable, maximum |
+| podDisruptionBudget.minAvailable | string | `"25%"` | How many pods need to be available, minimum |
 | podLabels | object | `{}` | labels to add to the Pods |
 | podSecurityContext | object | `{}` |  |
 | ports[0].containerPort | int | `80` |  |
