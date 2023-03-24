@@ -1,5 +1,5 @@
 {{- if .Values.podDisruptionBudget.enabled }}
-{{- if (lt (.Values.replicaCount | int) 2) }}
+{{- if and (not .Values.autoscaling.enabled) (lt (.Values.replicaCount | int) 2) }}
 {{- fail "You need to set .Values.replicaCount to at least 2 as this chart uses a PodDisruptionBudget to enable maintenance without downtime." }}
 {{- end }}
 {{- if and .Values.autoscaling.enabled (lt (.Values.autoscaling.minReplicas | int) 2) }}

@@ -1,5 +1,10 @@
 # Upgrading
 
+## 6.1.0 to 7.0.0
+
+Version 7.0.0 breaks compatibility for Kubernetes versions < 1.23.
+If you still run on 1.22 or older, you need to upgrade to 1.23 or newer.
+
 ## 5.6.0 to 6.0.0
 
 With this release, a `PodAntiAffinity` is deployed by default, spreading pods across nodes. This is configurable with the `enableNodeSpreadPodAntiAffinity` value.
