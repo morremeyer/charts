@@ -1,5 +1,9 @@
-replicaCount: 2
+replicaCount: 1
 
 podDisruptionBudget:
   enabled: true
   minAvailable: 50%
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
