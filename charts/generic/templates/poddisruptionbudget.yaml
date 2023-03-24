@@ -1,0 +1,23 @@
+{{- if .Values.podDisruptionBudget.enabled }}
+{{- if (lt (.Values.replicaCount | int) 2) }}
+{{- fail "You need to set .Values.replicaCount to at least 2 as this chart uses a PodDisruptionBudget to enable maintenance without downtime." }}
+{{- end }}
+{{- if and .Values.autoscaling.enabled (lt (.Values.autoscaling.minReplicas | int) 2) }}
+{{- fail "You need to set .Values.autoscaling.minReplicas to at least 2 as this chart uses a PodDisruptionBudget to enable maintenance without downtime." }}
+{{- end }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "generic.fullname" . }}
+  labels: {{- include "generic.labels" . | nindent 4 }}
+spec:
+  {{- with .Values.podDisruptionBudget.minAvailable }}
+  minAvailable: {{ . }}
+  {{- end }}
+  {{- with .Values.podDisruptionBudget.maxUnavailable }}
+  maxUnavailable: {{ . }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "generic.selectorLabels" . | nindent 6 }}
+{{- end }}
