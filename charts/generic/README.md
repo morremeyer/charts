@@ -95,7 +95,7 @@ configMap:
 | hostNetwork | bool | `false` | Set to true to enable host networking |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
-| image.tag | string | `"1.23.3"` |  |
+| image.tag | string | `"1.23.4"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.additionalLabels | object | `{}` | Additional labels for the ingress resource |
 | ingress.annotations | object | `{}` |  |
