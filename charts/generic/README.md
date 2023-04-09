@@ -1,6 +1,6 @@
 # generic
 
-![Version: 7.0.0](https://img.shields.io/badge/Version-7.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 7.0.1](https://img.shields.io/badge/Version-7.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -95,7 +95,7 @@ configMap:
 | hostNetwork | bool | `false` | Set to true to enable host networking |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
-| image.tag | string | `"1.23.3"` |  |
+| image.tag | string | `"1.23.4"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.additionalLabels | object | `{}` | Additional labels for the ingress resource |
 | ingress.annotations | object | `{}` |  |
