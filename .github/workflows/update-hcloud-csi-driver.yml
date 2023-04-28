@@ -26,7 +26,7 @@ jobs:
           sed -i '/^provisioner: csi.hetzner.cloud/a reclaimPolicy: "{{ .Values.reclaimPolicy }}"' charts/hcloud-csi-driver/templates/hcloud-csi.yaml
 
       - name: Commit updated chart
-        uses: EndBug/add-and-commit@61a88be553afe4206585b31aa72387c64295d08b # v9.1.1
+        uses: EndBug/add-and-commit@b97a9fe893e2984b63d00feaee5922e16ab1cc1e # v9.1.2
         with:
           message: "chore(deps): update hcloud-csi-driver"
           add: "charts/hcloud-csi-driver/*"
