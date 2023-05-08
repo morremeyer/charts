@@ -26,7 +26,7 @@ jobs:
           sed -i 's/--cluster-cidr=.*"/--cluster-cidr={{ .Values.clusterCidr }}"/g' charts/hcloud-ccm-networks/templates/ccm-networks.yaml
 
       - name: Commit updated chart
-        uses: EndBug/add-and-commit@b97a9fe893e2984b63d00feaee5922e16ab1cc1e # v9.1.2
+        uses: EndBug/add-and-commit@1bad3abcf0d6ec49a5857d124b0bfb52dc7bb081 # v9.1.3
         with:
           message: "chore(deps): update hcloud-ccm-networks"
           add: "charts/hcloud-ccm-networks/*"
