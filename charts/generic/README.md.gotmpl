@@ -61,4 +61,18 @@ configMap:
           - bar
 ```
 
+### additionalObjects
+
+If you want to add additional objects you can deploy them with `additionalObjects`:
+
+```
+additionalObjects:
+  - apiVersion: v1
+    data:
+      custom-key: custom value
+    kind: ConfigMap
+    metadata:
+      name: additional-configmap
+```
+
 {{ template "chart.valuesSection" . }}
