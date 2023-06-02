@@ -208,3 +208,6 @@ podDisruptionBudget:
 
   # -- How many pods can be unvailable, maximum
   maxUnavailable: ""
+
+# -- Additional API resources to deploy
+additionalObjects: []

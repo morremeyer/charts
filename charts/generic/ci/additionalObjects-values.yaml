@@ -1,0 +1,7 @@
+additionalObjects:
+  - apiVersion: v1
+    data:
+      custom-key: custom value
+    kind: ConfigMap
+    metadata:
+      name: additional-configmap
