@@ -1116,6 +1116,22 @@ entries:
     version: 1.0.0
   hcloud-ccm-networks:
   - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-06-16T16:47:41.350498467Z"
+    description: Deploys the hcloud-ccm
+    digest: 5857de45865f824d35dedb18832f62372d62603d5d1252a752bcbf4710a6f42b
+    home: https://github.com/morremeyer/charts
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: hcloud-ccm-networks
+    sources:
+    - https://github.com/hetznercloud/hcloud-cloud-controller-manager
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/hcloud-ccm-networks-1.16.0/hcloud-ccm-networks-1.16.0.tgz
+    version: 1.16.0
+  - apiVersion: v2
     appVersion: 1.15.0
     created: "2023-05-06T00:06:39.858948946Z"
     description: Deploys the hcloud-ccm
@@ -2662,4 +2678,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2023-06-08T10:03:10.312140701Z"
+generated: "2023-06-16T16:47:41.350922371Z"
