@@ -89,6 +89,13 @@
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s*run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@(?<currentValue>.*)"
       ]
+    },
+    {
+      "description": "Upgrade python-version version",
+      "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
+      "matchStrings": ["python-version:\\s(?<currentValue>.*)"],
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "python/cpython"
     }
   ]
 }

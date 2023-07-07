@@ -1,0 +1,12 @@
+name: Helm Docs - Skip
+
+on:
+  push:
+    branches-ignore:
+      - renovate/**
+
+jobs:
+  helm-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Not a renovate PR, nothing to do"
