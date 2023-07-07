@@ -1,12 +1,11 @@
 name: Helm Docs - Skip
 
 on:
-  push:
-    branches-ignore:
-      - renovate/**
+  pull_request:
 
 jobs:
   helm-docs:
     runs-on: ubuntu-latest
+    if: ${{ github.event.repository.name != 'charts' }}
     steps:
       - run: echo "Not a renovate PR, nothing to do"
