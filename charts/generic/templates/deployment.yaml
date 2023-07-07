@@ -20,6 +20,9 @@ spec:
   strategy:
     {{- toYaml . | nindent 4 }}
   {{- end }}
+  {{- with .Values.revisionHistoryLimit }}
+  revisionHistoryLimit: {{ toYaml . }}
+  {{- end }}
   template:
     metadata:
       {{- if or .Values.podAnnotations .Values.configMap.enabled }}

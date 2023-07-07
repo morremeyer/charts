@@ -10,6 +10,9 @@ restartPolicy: Always
 
 deploymentStrategy: {}
 
+# -- The number of old ReplicaSets to retain
+revisionHistoryLimit:
+
 initContainers: []
 
 imagePullSecrets: []
