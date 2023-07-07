@@ -43,6 +43,11 @@
         "hetznercloud/csi-driver"
       ],
       "extractVersion": "^v(?<version>.*)$"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchPackageNames": ["python/cpython"],
+      "extractVersion": "^(?<version>.*)$"
     }
   ],
   "regexManagers": [
