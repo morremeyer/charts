@@ -47,7 +47,7 @@
     {
       "matchDatasources": ["github-tags"],
       "matchPackageNames": ["python/cpython"],
-      "extractVersion": "^(?<version>.*)$"
+      "extractVersion": "^v(?<version>.*)$"
     }
   ],
   "regexManagers": [
