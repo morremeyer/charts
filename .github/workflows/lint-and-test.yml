@@ -1,10 +1,7 @@
-name: Lint and release charts
+name: Lint and Test
 
 on:
   pull_request:
-  push:
-    branches:
-      - main
 
 jobs:
   lint-and-test:
@@ -13,7 +10,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
-          ref: ${{ github.head_ref }}
           fetch-depth: 0
 
       - name: Set up Helm
@@ -46,35 +42,3 @@ jobs:
 
       - name: Run chart-testing (install)
         run: ct install --config ct.yaml
-
-  release:
-    if: ${{ github.ref == 'refs/heads/main' }}
-    needs:
-      - lint-and-test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-
-      - name: Configure Git
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-
-      - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
-        with:
-          # renovate: datasource=github-releases depName=helm/helm
-          version: v3.12.1
-
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@be16258da8010256c6e82849661221415f031968 # v1.5.0
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-
-          # Skip upload of existing charts. This is useful when not bumping version numbers
-          # for simple documentation updates
-          CR_SKIP_EXISTING: true
