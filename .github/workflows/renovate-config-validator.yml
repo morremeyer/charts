@@ -6,8 +6,7 @@ on:
       - renovate.json
 
 jobs:
-  validate:
-    name: Validate renovate config
+  renovate-validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

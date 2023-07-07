@@ -13,7 +13,11 @@ Before you commit, please run pre-commit. This will also generate the documentat
 To set up pre-commit to run automatically on commit, run (example for Ubuntu)
 
 ```sh
+# Linux
 pip3 install pre-commit
+
+# macOS
+brew install pre-commit
 
 pre-commit install --hook-type commit-msg --hook-type pre-commit
 ```
