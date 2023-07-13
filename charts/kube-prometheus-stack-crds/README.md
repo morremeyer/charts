@@ -1,8 +1,8 @@
 # kube-prometheus-stack-crds
 
-![Version: 47.3.0](https://img.shields.io/badge/Version-47.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 48.0.0](https://img.shields.io/badge/Version-48.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Deploys the kube-prometheus-stack CRDs to your cluster
+Please migrate to github.com/community-tooling/charts
 
 This chart is released in lockstep with [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack).
 

@@ -1,6 +1,6 @@
 apiVersion: v2
 name: hcloud-ccm-networks
-description: Deploys the hcloud-ccm
+description: Please migrate to github.com/community-tooling/charts
 
 home: https://github.com/morremeyer/charts
 sources:
@@ -8,8 +8,7 @@ sources:
 
 type: application
 
-# renovate datasource=github-releases depName=hetznercloud/hcloud-cloud-controller-manager
-version: 1.16.0
+version: 2.0.0
 # renovate datasource=github-releases depName=hetznercloud/hcloud-cloud-controller-manager
 appVersion: 1.16.0
 

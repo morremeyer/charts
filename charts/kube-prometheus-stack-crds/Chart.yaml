@@ -1,8 +1,7 @@
 apiVersion: v2
 name: kube-prometheus-stack-crds
-description: Deploys the kube-prometheus-stack CRDs to your cluster
+description: Please migrate to github.com/community-tooling/charts
 type: application
-# renovate datasource=helm registryUrl=https://prometheus-community.github.io/helm-charts depName=kube-prometheus-stack
-version: 47.3.0
+version: 48.0.0
 maintainers:
   - name: morremeyer

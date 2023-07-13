@@ -1,5 +1,10 @@
 # Upgrading
 
+## To 8.0.0
+
+Do not upgrade to this version, to github.com/community-tooling/charts instead.
+See https://github.com/morremeyer/charts/blob/main/README.md for instructions.
+
 ## 6.1.0 to 7.0.0
 
 Version 7.0.0 breaks compatibility for Kubernetes versions < 1.23.

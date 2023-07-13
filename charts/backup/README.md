@@ -1,8 +1,8 @@
 # backup
 
-![Version: 3.2.2](https://img.shields.io/badge/Version-3.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Chart to back up PVCs with restic and regularly clean up the snapshots.
+Please migrate to github.com/community-tooling/charts
 
 ## Maintainers
 
