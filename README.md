@@ -6,8 +6,10 @@ Every chart available in this repository is available on community-tooling/chart
 
 ## To migrate
 
-1. Update to the latest version available in morremeyer/charts
-2. Change repository references from morremeyer/charts to community-tooling/charts
+1. Update to the **second latest** version available in morremeyer/charts. There has been a major version bump to alert everyone to the breaking change of the repository move.
+1. For example, for the **generic** chart, upgrade to version `7.2.1`, **not** to `8.0.0`
+1. If you already upgraded to the major version for the repository move, you **can safely and should** downgrade to the version before that
+1. Change repository references from morremeyer/charts to community-tooling/charts. New versions will be published there.
 
 ## Why?
 

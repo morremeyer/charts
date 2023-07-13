@@ -1,6 +1,6 @@
 apiVersion: v2
 name: hcloud-csi-driver
-description: Deploys the hcloud-csi-driver
+description: Please migrate to github.com/community-tooling/charts
 
 home: https://github.com/morremeyer/charts
 sources:
@@ -8,8 +8,7 @@ sources:
 
 type: application
 
-# renovate datasource=github-releases depName=hetznercloud/csi-driver
-version: 2.3.2
+version: 3.0.0
 # renovate datasource=github-releases depName=hetznercloud/csi-driver
 appVersion: 2.3.2
 
