@@ -1,4 +1,0 @@
-The repository for this chart is deprecated and no longer updated.
-Please migrate to github.com/community-tooling/charts.
-
-See https://github.com/morremeyer/charts/blob/main/README.md for instructions.
