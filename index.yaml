@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   backup:
   - apiVersion: v2
+    created: "2023-07-13T10:40:47.325512135Z"
+    description: Please migrate to github.com/community-tooling/charts
+    digest: b752ed098236021ca4513cfa9b24fa244fe44f2d5c9e93b9927208fc13d91632
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: backup
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/backup-4.0.0/backup-4.0.0.tgz
+    version: 4.0.0
+  - apiVersion: v2
     created: "2023-05-21T13:44:08.314118056Z"
     description: Chart to back up PVCs with restic and regularly clean up the snapshots.
     digest: 1ec7cf9b1edc77ba4df58b5cfddb145cb9723d17f69105ce12d54c3b85a63603
@@ -269,6 +281,18 @@ entries:
     - https://github.com/morremeyer/charts/releases/download/backup-1.0.0/backup-1.0.0.tgz
     version: 1.0.0
   cronjob:
+  - apiVersion: v2
+    created: "2023-07-13T10:40:47.445817792Z"
+    description: Please migrate to github.com/community-tooling/charts
+    digest: 6f168920c6f616958b49b5801f322752b5e61c6b1ee2179cd7edc11b7b0ec78a
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/cronjob-4.0.0/cronjob-4.0.0.tgz
+    version: 4.0.0
   - apiVersion: v2
     created: "2023-07-07T13:14:24.447767163Z"
     description: Run jobs on a schedule
@@ -546,6 +570,18 @@ entries:
     - https://github.com/morremeyer/charts/releases/download/cronjob-1.0.1/cronjob-1.0.1.tgz
     version: 1.0.1
   generic:
+  - apiVersion: v2
+    created: "2023-07-13T10:40:47.582012375Z"
+    description: Please migrate to github.com/community-tooling/charts
+    digest: b1f3856aa8a69e5855f9b0f2f9aff27fababb6f0e1e784577961a73d35be00d4
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: generic
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/generic-8.0.0/generic-8.0.0.tgz
+    version: 8.0.0
   - apiVersion: v2
     created: "2023-07-07T13:51:58.810183502Z"
     description: A chart for generic applications. Use this if you need to deploy
@@ -1155,6 +1191,22 @@ entries:
   hcloud-ccm-networks:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-07-13T10:40:47.715760439Z"
+    description: Please migrate to github.com/community-tooling/charts
+    digest: 8fcaffb076b7e42b8f00e05f3ef9bb668dbdb806d24b4726ee057c9c09c3c10f
+    home: https://github.com/morremeyer/charts
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: hcloud-ccm-networks
+    sources:
+    - https://github.com/hetznercloud/hcloud-cloud-controller-manager
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/hcloud-ccm-networks-2.0.0/hcloud-ccm-networks-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-06-16T16:47:41.350498467Z"
     description: Deploys the hcloud-ccm
     digest: 5857de45865f824d35dedb18832f62372d62603d5d1252a752bcbf4710a6f42b
@@ -1252,6 +1304,22 @@ entries:
   hcloud-csi-driver:
   - apiVersion: v2
     appVersion: 2.3.2
+    created: "2023-07-13T10:40:47.820844275Z"
+    description: Please migrate to github.com/community-tooling/charts
+    digest: 462af47bebe4591e18ca94bc440b4fb4e2c350be6a3d2de781bcf504fd40bc64
+    home: https://github.com/morremeyer/charts
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: hcloud-csi-driver
+    sources:
+    - https://github.com/hetznercloud/csi-driver
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/hcloud-csi-driver-3.0.0/hcloud-csi-driver-3.0.0.tgz
+    version: 3.0.0
+  - apiVersion: v2
+    appVersion: 2.3.2
     created: "2023-04-13T00:34:56.452139742Z"
     description: Deploys the hcloud-csi-driver
     digest: 322bc040165092f007f8398832af4fe272e91de9aa88cc3b33575a474177f6b6
@@ -1331,6 +1399,17 @@ entries:
     - https://github.com/morremeyer/charts/releases/download/hcloud-csi-driver-2.0.1/hcloud-csi-driver-2.0.1.tgz
     version: 2.0.1
   kube-prometheus-stack-crds:
+  - apiVersion: v2
+    created: "2023-07-13T10:40:47.977536021Z"
+    description: Please migrate to github.com/community-tooling/charts
+    digest: 8eda349ffea5a6e1e36d3541ce2c1c4d54dbacbd96cf9ff586638e1aa9439b61
+    maintainers:
+    - name: morremeyer
+    name: kube-prometheus-stack-crds
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/kube-prometheus-stack-crds-48.0.0/kube-prometheus-stack-crds-48.0.0.tgz
+    version: 48.0.0
   - apiVersion: v2
     created: "2023-07-04T08:46:37.272665689Z"
     description: Deploys the kube-prometheus-stack CRDs to your cluster
@@ -2512,6 +2591,17 @@ entries:
     version: 32.4.0
   mailtrain:
   - apiVersion: v2
+    created: "2023-07-13T10:40:48.119665152Z"
+    description: Please migrate to github.com/community-tooling/charts
+    digest: 563c596e700f85cc47d1226a9c497df919f7c4bed96daf31b7c05bda783d2fbe
+    maintainers:
+    - name: morremeyer
+    name: mailtrain
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/mailtrain-3.0.0/mailtrain-3.0.0.tgz
+    version: 3.0.0
+  - apiVersion: v2
     created: "2022-09-13T21:45:57.871349535Z"
     description: Runs mailtrain in your kubernetes cluster
     digest: 2b17a1e79ad764c51e42f07ad1f7953ef2bf11f00b8286583bfa3683b6abcd37
@@ -2586,6 +2676,19 @@ entries:
     - https://github.com/morremeyer/charts/releases/download/mailtrain-1.0.0/mailtrain-1.0.0.tgz
     version: 1.0.0
   namespaces:
+  - apiVersion: v2
+    created: "2023-07-13T10:40:48.232956453Z"
+    description: Please migrate to github.com/community-tooling/charts
+    digest: 72f138dd772113e3974245540140a144f3dcf61e583bf41f7b34db20d394e005
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    - name: ekeih
+    name: namespaces
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/namespaces-4.0.0/namespaces-4.0.0.tgz
+    version: 4.0.0
   - apiVersion: v2
     created: "2022-04-14T11:00:27.060080646Z"
     description: Deploy namespaces with (default) networkpolicies
@@ -2739,6 +2842,18 @@ entries:
     version: 1.0.0
   znc:
   - apiVersion: v2
+    created: "2023-07-13T10:40:48.359040756Z"
+    description: Please migrate to github.com/community-tooling/charts
+    digest: 2c0e63ed5fcffa8b27af1dec149b9af95b3d1db279cbb37231b31be5037bbb54
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    name: znc
+    type: application
+    urls:
+    - https://github.com/morremeyer/charts/releases/download/znc-2.0.0/znc-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2022-04-14T11:00:27.170827538Z"
     description: Installs ZNC (an IRC bouncer) to your cluster
     digest: e38f248125ef2a6c00c415ed9a21b62746cd8a5ce75491036c3e698cb91e1934
@@ -2771,4 +2886,4 @@ entries:
     urls:
     - https://github.com/morremeyer/charts/releases/download/znc-1.0.0/znc-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-07T13:51:58.811289015Z"
+generated: "2023-07-13T10:40:48.360531068Z"
